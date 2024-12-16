@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="others/Jar/commons-beanutils-1.8.2.jar"/>
+	<classpathentry kind="lib" path="others/Jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="others/Jar/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="others/Jar/commons-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="others/Jar/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="others/Jar/groovy-all-2.0.1.jar"/>
+	<classpathentry kind="lib" path="others/Jar/jackson-core-2.1.4.jar"/>
+	<classpathentry kind="lib" path="others/Jar/jackson-databind-2.1.4.jar"/>
+	<classpathentry kind="lib" path="others/Jar/JasperReport.jar"/>
+	<classpathentry kind="lib" path="others/Jar/jasperreports-5.6.0.jar"/>
+	<classpathentry kind="lib" path="others/Jar/jasperreports-core-renderer.jar"/>
+	<classpathentry kind="lib" path="others/Jar/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="others/Jar/LGoodDatePicker-10.4.1.jar"/>
+	<classpathentry kind="lib" path="others/Jar/mysql-connector-j-8.3.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

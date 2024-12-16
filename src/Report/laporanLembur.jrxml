@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62d75d74-c994-485f-ab4b-fc9b124a2a7f">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="297"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="periodeBulan" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="seachCondition" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT e.employe_name AS employe_name,
+e.nik AS id_karyawan,
+MONTHNAME(a.absensi_date) AS nameMonth,
+a.employe_id AS employe_id, 
+COUNT(l.lembur_id) AS total_lembur, 
+(COUNT(l.lembur_id) * 200000) AS biaya_lembur FROM 
+lembur l LEFT JOIN absensi a ON l.absensi_id = a.absensi_id 
+LEFT JOIN employe e ON a.employe_id = e.employe_id 
+WHERE monthname(a.absensi_date) = $P{periodeBulan} 
+GROUP BY nameMonth,employe_id]]>
+	</queryString>
+	<field name="employe_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_karyawan" class="java.lang.String"/>
+	<field name="nameMonth" class="java.lang.String"/>
+	<field name="employe_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_lembur" class="java.lang.Long"/>
+	<field name="biaya_lembur" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="5abed522-d1a0-4adb-9f53-f8c183f40615" mode="Opaque" x="-20" y="-20" width="843" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="03ca0485-a02e-44a6-bdf6-61207fd7d56d" x="20" y="0" width="536" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LAPORAN LEMBUR KARYAWAN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="7a1fb01e-a584-440b-b479-3d0b45cf77cc" x="20" y="43" width="212" height="20" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PT MAGNUS SEDAYA SELARA]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="0be37fe5-dc10-4ee8-8a7e-928e75aa2ce8" x="-20" y="20" width="822" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="89f6f5a9-08f4-4be9-8355-5281632de2c9" mode="Opaque" x="0" y="0" width="148" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3728430e-9b61-4352-9bdc-b81193a58dd4" mode="Opaque" x="148" y="0" width="167" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e1237be9-168f-4656-bc12-34dd44330471" mode="Opaque" x="315" y="0" width="156" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periode Bulan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9176abd7-ba3b-4492-8ea2-be9ff4664488" mode="Opaque" x="471" y="0" width="160" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Lembur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8869d8c7-cfd6-4431-b495-bc5db8f8d264" mode="Opaque" x="631" y="0" width="171" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Biaya Lembur]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25">
+			<line>
+				<reportElement uuid="33776ce7-2415-4bbb-9d86-040cbd8ee4d9" positionType="FixRelativeToBottom" x="0" y="19" width="802" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="1c8dd459-91a6-4566-8e43-18a839151a3e" x="0" y="0" width="148" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_karyawan}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="32b40e97-8ff0-469c-b077-ee73444a7eb2" x="148" y="0" width="167" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employe_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="bc77d60d-0217-4dae-9c7b-92f2d0bdb1ab" x="315" y="0" width="156" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nameMonth}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="99191301-d973-43ae-a30f-ac446647d43e" x="471" y="0" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_lembur}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="a20b50aa-1e52-4c11-b563-b727b9a0b668" x="631" y="0" width="171" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp. " + new DecimalFormat("#,##0.00").format($F{biaya_lembur})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="206">
+			<textField>
+				<reportElement uuid="1669687e-531e-4c11-ad09-0614b4dde9c7" mode="Opaque" x="0" y="193" width="762" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="3c0f3b70-74d7-4631-9b9a-1f1dab8f4003" mode="Opaque" x="762" y="193" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="30eed022-dde5-4098-a31a-b3334352b147" x="0" y="193" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="485db513-a0ca-4870-a0bd-32f3d5f24d97" x="661" y="106" width="41" height="13"/>
+				<textElement/>
+				<text><![CDATA[Jakarta,]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="30eed022-dde5-4098-a31a-b3334352b147" x="702" y="106" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date().format("dd-MM-yyyy")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d95d21fb-a9f2-4a16-afaf-46ce242b09ab" x="662" y="119" width="140" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Head Office]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3208b356-87cc-4170-851f-63314c4e867a" x="662" y="157" width="140" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Manager Personalia]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
