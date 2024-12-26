@@ -64,8 +64,7 @@ public class GajiController {
     private final ImplementInsuranceEmploye daoEmployeInsurance = new InsuranceEmployeDAO();
     private final ImplementReimburse daoReimburse = new ReimbursmentDAO();
     private GajiModel currentGaji;
-    
-    
+
     public GajiController(GajiForm panel) {
         this.panel = panel;
         this.dao = new GajiDAO();
@@ -139,6 +138,15 @@ public class GajiController {
                 modelDetail.setTotal(Double.valueOf(payAbsen));
                 detailGajis.add(modelDetail);
 
+                // BPJS
+                modelDetail = new GajiDetailModel();
+                modelDetail.setType("BPJS");
+                modelDetail.setRemarks("Pembayaran BPJS Kesehatan");
+                double payBpjs = model.getSalary() * 0.01;
+                totalPengurangan += payBpjs;
+                modelDetail.setTotal(payBpjs * -1.0);
+                detailGajis.add(modelDetail);
+                
                 // Add Pajak
                 List<PajakModel> pajaks = daoPajak.getAllData();
                 for (PajakModel pajak : pajaks) {
@@ -150,18 +158,18 @@ public class GajiController {
                     modelDetail.setTotal(total * -1.0);
                     detailGajis.add(modelDetail);
                 }
-                
+
                 List<ReimbursmentModel> reimbursments = daoReimburse.getReimbursment(String.valueOf(modelPeriode.getStart_date()), String.valueOf(modelPeriode.getEnd_date()), model.getEmploye_id());
-                for(ReimbursmentModel reimbursment : reimbursments){
-                   for(ReimbursmentDetailModel detail : reimbursment.getDetail()){
-                       modelDetail = new GajiDetailModel();
+                for (ReimbursmentModel reimbursment : reimbursments) {
+                    for (ReimbursmentDetailModel detail : reimbursment.getDetail()) {
+                        modelDetail = new GajiDetailModel();
                         modelDetail.setType("Reimbursment");
-                        modelDetail.setRemarks("No "+reimbursment.getReimbursment_no()+" : "+detail.getDescription());
+                        modelDetail.setRemarks("No " + reimbursment.getReimbursment_no() + " : " + detail.getDescription());
                         double total = detail.getCost();
                         totalPendapatan += total;
                         modelDetail.setTotal(total);
                         detailGajis.add(modelDetail);
-                   }
+                    }
                 }
 
                 // Add Asuransi
@@ -250,7 +258,7 @@ public class GajiController {
             Object selectedEmploye = panel.getEmployeListCombo().getSelectedItem();
             employe_id = Integer.valueOf(((ComboBoxModel) selectedEmploye).getValue());
         }
-        
+
         int periode_id = 0;
         if (panel.getPeriodeCombo().getSelectedIndex() > 0) {
             Object selectedPeriode = panel.getPeriodeCombo().getSelectedItem();
@@ -260,8 +268,9 @@ public class GajiController {
         list = dao.getGajiSearch(employe_id, periode_id);
         this.applyTable(list);
     }
-    public void detail(GajiModel gaji){
-        
+
+    public void detail(GajiModel gaji) {
+
         this.resetForm();
         gaji.setDetail(dao.getGajiDetail(gaji.getGaji_id()));
         panel.getDetailNamaTxt().setText(gaji.getKaryawan().getEmploye_name());
@@ -271,23 +280,23 @@ public class GajiController {
         Double money = gaji.getGajiBersih();
         NumberFormat formatter = NumberFormat.getInstance(new Locale("en_US"));
 
-
-        panel.getGajiBersihTxt().setText("Rp."+formatter.format(money));
-        panel.getGajiTxt().setText("Rp."+formatter.format(gaji.getKaryawan().getSalary()));
+        panel.getGajiBersihTxt().setText("Rp." + formatter.format(money));
+        panel.getGajiTxt().setText("Rp." + formatter.format(gaji.getKaryawan().getSalary()));
         listDetail = gaji.getDetail();
         panel.getDetailTable().setModel(new TableGajiDetail(listDetail));
         panel.moveToDetail();
-        
+
     }
-    public void selectedRow(){
+
+    public void selectedRow() {
         int row = panel.getTable().getSelectedRow();
-        if (row != -1){
+        if (row != -1) {
             int col = panel.getTable().getSelectedColumn();
-               
-            if(col == 6){
+
+            if (col == 6) {
                 this.detail(list.get(row));
                 currentGaji = list.get(row);
-            }            
-        }   
+            }
+        }
     }
 }
