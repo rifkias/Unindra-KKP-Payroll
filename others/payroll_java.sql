@@ -11,7 +11,7 @@
  Target Server Version : 80040
  File Encoding         : 65001
 
- Date: 16/12/2024 23:44:21
+ Date: 27/12/2024 01:56:42
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `absensi` (
   `check_out` datetime DEFAULT NULL,
   PRIMARY KEY (`absensi_id`),
   KEY `employe_reference_idx` (`employe_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of absensi
@@ -45,6 +45,7 @@ INSERT INTO `absensi` VALUES (9, 12, '2024-05-10', '2024-05-10 05:17:06', '2024-
 INSERT INTO `absensi` VALUES (10, 1, '2024-09-18', '2024-09-18 15:24:49', '2024-11-05 11:16:25');
 INSERT INTO `absensi` VALUES (11, 1, '2024-12-03', '2024-12-03 09:57:46', '2024-12-03 09:57:48');
 INSERT INTO `absensi` VALUES (12, 1, '2024-12-07', '2024-12-07 22:27:40', '2024-12-07 23:18:04');
+INSERT INTO `absensi` VALUES (13, 1, '2024-12-21', '2024-12-21 08:31:42', '2024-12-25 19:14:49');
 COMMIT;
 
 -- ----------------------------
@@ -172,7 +173,7 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `gaji`;
 CREATE TABLE `gaji` (
-  `gaji_id` int NOT NULL,
+  `gaji_id` int NOT NULL AUTO_INCREMENT,
   `employe_id` int DEFAULT NULL,
   `total_absen` int DEFAULT NULL,
   `total_lembur` int DEFAULT NULL,
@@ -186,12 +187,18 @@ CREATE TABLE `gaji` (
   KEY `fk_periode_idx` (`periode_id`),
   CONSTRAINT `fk_employe` FOREIGN KEY (`employe_id`) REFERENCES `employe` (`employe_id`),
   CONSTRAINT `fk_periode` FOREIGN KEY (`periode_id`) REFERENCES `periode` (`periode_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of gaji
 -- ----------------------------
 BEGIN;
+INSERT INTO `gaji` VALUES (93, 1, 2, 0, 1, 6730000, 218600, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
+INSERT INTO `gaji` VALUES (94, 10, 0, 0, 1, 4500000, 90000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
+INSERT INTO `gaji` VALUES (95, 11, 0, 0, 1, 2500000, 50000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
+INSERT INTO `gaji` VALUES (96, 12, 0, 0, 1, 3000000, 90000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
+INSERT INTO `gaji` VALUES (97, 13, 0, 0, 1, 3000000, 60000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
+INSERT INTO `gaji` VALUES (98, 15, 0, 0, 1, 2222222, 44444, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
 COMMIT;
 
 -- ----------------------------
@@ -199,20 +206,43 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `gaji_detail`;
 CREATE TABLE `gaji_detail` (
-  `gaji_detail_id` int NOT NULL,
+  `gaji_detail_id` int NOT NULL AUTO_INCREMENT,
   `gaji_id` int DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `remarks` text,
   `total` double DEFAULT NULL,
   PRIMARY KEY (`gaji_detail_id`),
   KEY `fk_gaji_detail_1_idx` (`gaji_id`),
-  CONSTRAINT `fk_gaji_detail_1` FOREIGN KEY (`gaji_id`) REFERENCES `gaji` (`gaji_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `header_gaji` FOREIGN KEY (`gaji_id`) REFERENCES `gaji` (`gaji_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=257 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of gaji_detail
 -- ----------------------------
 BEGIN;
+INSERT INTO `gaji_detail` VALUES (234, 93, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (235, 93, 'Absen', 'Total Absen = 2', 100000);
+INSERT INTO `gaji_detail` VALUES (236, 93, 'Pajak', 'Pajak Penghasilan', -108600.00245999999);
+INSERT INTO `gaji_detail` VALUES (237, 93, 'Reimbursment', 'No 123-12 : Makan Siang', 200000);
+INSERT INTO `gaji_detail` VALUES (238, 93, 'Reimbursment', 'No 123-12 : Hotel', 1000000);
+INSERT INTO `gaji_detail` VALUES (239, 93, 'Asuransi', 'Asuransi Kendaraan', -30000);
+INSERT INTO `gaji_detail` VALUES (240, 93, 'Asuransi', 'Asuransi Kesehatan', -80000);
+INSERT INTO `gaji_detail` VALUES (241, 94, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (242, 94, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (243, 94, 'Pajak', 'Pajak Penghasilan', -90000);
+INSERT INTO `gaji_detail` VALUES (244, 95, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (245, 95, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (246, 95, 'Pajak', 'Pajak Penghasilan', -50000);
+INSERT INTO `gaji_detail` VALUES (247, 96, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (248, 96, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (249, 96, 'Pajak', 'Pajak Penghasilan', -60000);
+INSERT INTO `gaji_detail` VALUES (250, 96, 'Asuransi', 'Asuransi Kesehatan', -30000);
+INSERT INTO `gaji_detail` VALUES (251, 97, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (252, 97, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (253, 97, 'Pajak', 'Pajak Penghasilan', -60000);
+INSERT INTO `gaji_detail` VALUES (254, 98, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (255, 98, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (256, 98, 'Pajak', 'Pajak Penghasilan', -44444.44);
 COMMIT;
 
 -- ----------------------------
@@ -309,7 +339,7 @@ CREATE TABLE `pajak` (
 -- Records of pajak
 -- ----------------------------
 BEGIN;
-INSERT INTO `pajak` VALUES (1, 'Pajak Penghasilan', 'Potongan Pajak Penghasilan', 0.2);
+INSERT INTO `pajak` VALUES (1, 'Pajak Penghasilan', 'Potongan Pajak Penghasilan', 0.02);
 COMMIT;
 
 -- ----------------------------
@@ -324,13 +354,14 @@ CREATE TABLE `periode` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`periode_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of periode
 -- ----------------------------
 BEGIN;
 INSERT INTO `periode` VALUES (1, 'Week 1 December', '2024-12-01', '2024-12-08', '2024-12-08 13:53:18', '2024-12-08 14:36:53');
+INSERT INTO `periode` VALUES (3, 'Week 2 December', '2024-12-08', '2024-12-14', '2024-12-25 20:45:15', '2024-12-25 20:45:15');
 COMMIT;
 
 -- ----------------------------
@@ -346,7 +377,7 @@ CREATE TABLE `reimbursment` (
   `created_by` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`reimbursment_id`),
   KEY `employe_reference_idx` (`employe_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of reimbursment
@@ -358,6 +389,7 @@ INSERT INTO `reimbursment` VALUES (7, 'Reimburse 240511', 1, 1, '2024-05-11 07:5
 INSERT INTO `reimbursment` VALUES (8, 'TEST ADD', 1, 1, '2024-05-11 20:58:42', '202143500723');
 INSERT INTO `reimbursment` VALUES (9, 'TEST KARYAWAN', 12, 1, '2024-05-11 22:22:14', '202143500723');
 INSERT INTO `reimbursment` VALUES (10, 'TEST', 12, 12, '2024-05-11 22:24:22', 'karyawan2');
+INSERT INTO `reimbursment` VALUES (11, '123-12', 1, 1, '2024-12-02 00:36:43', '202143500723');
 COMMIT;
 
 -- ----------------------------
@@ -372,7 +404,7 @@ CREATE TABLE `reimbursment_detail` (
   PRIMARY KEY (`reimbursment_detail_id`),
   KEY `reimbursment_reference_idx` (`reimbursment_id`),
   CONSTRAINT `reimbursment_reference` FOREIGN KEY (`reimbursment_id`) REFERENCES `reimbursment` (`reimbursment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of reimbursment_detail
@@ -391,6 +423,8 @@ INSERT INTO `reimbursment_detail` VALUES (10, 8, 'TRASPORT', 100000);
 INSERT INTO `reimbursment_detail` VALUES (11, 9, 'MAKAN SIANG', 200000);
 INSERT INTO `reimbursment_detail` VALUES (12, 9, 'MAKAN MALAM', 300000);
 INSERT INTO `reimbursment_detail` VALUES (13, 10, 'TEST 123', 100000);
+INSERT INTO `reimbursment_detail` VALUES (14, 11, 'Makan Siang', 200000);
+INSERT INTO `reimbursment_detail` VALUES (15, 11, 'Hotel', 1000000);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

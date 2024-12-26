@@ -228,5 +228,44 @@ public class ReimbursmentDAO implements ImplementReimburse{
             return null;
         }
     }
+
+    @Override
+    public List<ReimbursmentModel> getReimbursment(String fromDate, String toDate, int employe_id) {
+        list = new ArrayList<ReimbursmentModel>(); 
+        String sqlWhere1 = "";
+        String sqlWhere2 = "";
+        if(fromDate != null && toDate != null && !fromDate.equals("") && !toDate.equals("")){
+            sqlWhere1 = " AND created_at BETWEEN '"+fromDate+"' AND '"+toDate+"'";
+        }
+        if(employe_id != 0){
+            sqlWhere2 = " AND employe_id = '"+employe_id+"'";
+        }
+        try {
+            
+            Statement statement = DbConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM reimbursment WHERE 1=1 "+sqlWhere1+sqlWhere2);
+            
+            while (result.next()) { 
+                ReimbursmentModel model = new ReimbursmentModel();
+                model.setEmploye_id(result.getInt("employe_id"));
+                model.setReimbursment_no(result.getString("reimbursment_no"));
+                model.setReimbursment_id(result.getInt("reimbursment_id"));
+                model.setRequest_from(result.getInt("request_from"));
+                model.setCreated_at(result.getTimestamp("created_at"));
+                model.setCreated_by(result.getString("created_by"));
+                model.setEmployeDetail(karyawanDao.getDetail(result.getInt("employe_id")));
+                model.setRequestDetail(karyawanDao.getDetail(result.getInt("request_from")));
+                model.setDetail(getReimbursmentDetail(result.getInt("reimbursment_id")));
+                list.add(model);
+            }
+            
+            statement.close();
+            result.close();
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(DepartementDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     
 }

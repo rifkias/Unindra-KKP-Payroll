@@ -186,5 +186,34 @@ public class InsuranceEmployeDAO implements ImplementInsuranceEmploye{
             return false;
         }
     }
+
+    @Override
+    public List<InsuranceEmployeModel> getEmployeInsurance(int id) {
+        list = new ArrayList<InsuranceEmployeModel>();
+        
+        try {
+            Statement statement = DbConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM employe_insurance WHERE employe_id = "+id);
+            
+            while (result.next()) { 
+                InsuranceModel modelInsurance = insuranceController.getDetail(result.getInt("insurance_id"));
+                KaryawanModel modelKaryawan = karyawanController.getDetail(result.getInt("employe_id"));
+                InsuranceEmployeModel model = new InsuranceEmployeModel();
+                model.setEmploye_insurance_id(result.getInt("employe_insurance_id"));
+                model.setEmploye_id(result.getInt("employe_id"));
+                model.setInsurance_id(result.getInt("insurance_id"));
+                model.setEmploye(modelKaryawan);
+                model.setInsurance(modelInsurance);
+                list.add(model);
+            }
+            
+            statement.close();
+            result.close();
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(InsuranceEmployeDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     
 }

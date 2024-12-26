@@ -26,4 +26,7 @@ public interface ImplementInsuranceEmploye {
     public InsuranceEmployeModel getDetail(int id);
     
     public boolean checkDuplicate(InsuranceEmployeModel model);
+    public List<InsuranceEmployeModel> getEmployeInsurance(int id);
+    
+    
 }

@@ -215,6 +215,8 @@ public class MainMenu2 extends javax.swing.JFrame {
         ImageIcon iconInsurance = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-insurance-32.png")); 
         ImageIcon iconInsuranceEmploye = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-medical-insurance-32.png")); 
         
+        ImageIcon iconGaji = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-medical-insurance-32.png")); 
+        
         
 
         MenuItem menuHome = new MenuItem(iconHome, false, null, "Home", new ActionListener() {
@@ -370,14 +372,21 @@ public class MainMenu2 extends javax.swing.JFrame {
                 main.revalidate();
             }
         });
+        MenuItem menuGaji = new MenuItem(null, false, iconGaji, "Gaji", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                main.removeAll();
+                main.add(new GajiForm(loginModel));
+                main.repaint();
+                main.revalidate();
+            }
+        });
         
         
         
-        
-
         MenuItem menuMaster = new MenuItem(iconMaster, false, null, "Master", null, menuLocation, menuDepartement, menuDivison, menuKaryawan, menuPeriode,menuTax,menuInsurance, menuInsuranceEmploye);
 
-        MenuItem menuTransaksi = new MenuItem(iconTransaksi, false, null, "Transaksi", null, menuAbsensi, menuLembur, menuReimburse);
+        MenuItem menuTransaksi = new MenuItem(iconTransaksi, false, null, "Transaksi", null, menuAbsensi, menuLembur, menuReimburse, menuGaji);
         MenuItem menuLaporan = new MenuItem(iconReport, false, null, "Report", null, menuLaporanAbsen,menuLaporanLembur,menuLaporanKaryawan,menuLaporanGajiKaryawan);
         addMenu(menuHome, menuMaster, menuTransaksi, menuLaporan);
 

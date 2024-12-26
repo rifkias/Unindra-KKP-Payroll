@@ -310,6 +310,48 @@ public class KaryawanDAO implements ImplementKaryawan{
             Logger.getLogger(LocationDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public List<KaryawanModel> getActiveEmploye() {
+     list = new ArrayList<KaryawanModel>();
+        
+        try {
+            
+            Statement statement = DbConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM employe WHERE is_active = 1");
+            
+            while (result.next()) { 
+                KaryawanModel model = new KaryawanModel();
+                LocationModel modelLocation = locationController.getLocationDetail(result.getInt("location_id"));
+                DepartementModel modelDepartement = departementController.getDetail(result.getInt("departement_id"));
+                DivisionModel modelDivision = divisionController.getDetail(result.getInt("division_id"));
+                model.setLocation(modelLocation);
+                model.setDepartement(modelDepartement);
+                model.setDivision(modelDivision);
+                model.setEmploye_id(result.getInt("employe_id"));
+                model.setEmploye_name(result.getString("employe_name"));
+                model.setDate_of_birth(result.getDate("date_of_birth").toLocalDate());
+                model.setNik(result.getString("nik"));
+                model.setUsername(result.getString("username"));
+                model.setLocation_id(result.getInt("location_id"));
+                model.setDepartement_id(result.getInt("departement_id"));
+                model.setDivision_id(result.getInt("division_id"));
+                model.setRole(result.getString("role"));
+                model.setSalary(result.getDouble("salary"));
+                model.setIs_active(result.getInt("is_active"));
+                model.setCreated_at(result.getTimestamp("created_at"));
+                model.setCreated_by(result.getString("created_by"));
+                list.add(model);
+            }
+            
+            statement.close();
+            result.close();
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(DepartementDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     
     
 }

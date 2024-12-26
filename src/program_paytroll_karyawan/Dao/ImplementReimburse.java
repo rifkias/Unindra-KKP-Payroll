@@ -17,12 +17,14 @@ public interface ImplementReimburse {
     public List<ReimbursmentModel> getReimbursment();
     public List<ReimbursmentModel> getReimbursmentSearch(String nama,int employeId);
     public List<ReimbursmentDetailModel> getReimbursmentDetail(int id);
+    public List<ReimbursmentModel> getReimbursment(String fromDate,String toDate, int employe_id);
     
     public int insertReimbursment(ReimbursmentModel model);
     
     public void insertReimbursmentDetail(ReimbursmentDetailModel model);
 
     public void deleteReimbursmentHeader(int id);
+    
     public void deleteReimbursmentDetail(int id);
     
     public ReimbursmentModel getDetailReimbusment(int id);
