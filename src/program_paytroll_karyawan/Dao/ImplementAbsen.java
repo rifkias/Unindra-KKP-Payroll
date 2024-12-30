@@ -26,4 +26,6 @@ public interface ImplementAbsen {
     
     public AbsensiModel getAbsensiById(int id);
     
+    public int getTotalAbsenByMonth(int id, int employe_id);
+    
 }

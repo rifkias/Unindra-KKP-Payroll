@@ -34,4 +34,6 @@ public interface ImplementKaryawan {
     public String encryptPassword(String password);
     
     public List<KaryawanModel> getActiveEmploye();
+    
+    public int getTotalEmploye();
 }

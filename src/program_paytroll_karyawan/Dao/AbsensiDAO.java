@@ -265,6 +265,25 @@ public class AbsensiDAO implements ImplementAbsen {
             return null;
         }
     }
+
+    @Override
+    public int getTotalAbsenByMonth(int id, int employe_id) {
+         try {
+            int total = 0;
+            Statement statement = DbConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery("SELECT COUNT(*) FROM absensi WHERE employe_id="+employe_id+" AND MONTH(absensi_date)="+id);
+            if(result.next()){
+                total = result.getInt(1);
+            }
+          
+            statement.close();
+            result.close();
+            return total;
+        } catch (SQLException ex) {
+            Logger.getLogger(DepartementDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
     
     
     

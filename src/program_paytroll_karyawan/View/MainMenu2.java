@@ -215,7 +215,7 @@ public class MainMenu2 extends javax.swing.JFrame {
         ImageIcon iconInsurance = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-insurance-32.png")); 
         ImageIcon iconInsuranceEmploye = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-medical-insurance-32.png")); 
         
-        ImageIcon iconGaji = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-medical-insurance-32.png")); 
+        ImageIcon iconGaji = new ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/icons8-online-payment-32.png")); 
         
         
 
@@ -354,7 +354,7 @@ public class MainMenu2 extends javax.swing.JFrame {
                 main.revalidate();
             }
         });
-        MenuItem menuInsurance = new MenuItem(null, false, iconInsurance, "Asuransi", new ActionListener() {
+        MenuItem menuInsurance = new MenuItem(null, true, iconInsurance, "Asuransi", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 main.removeAll();
@@ -363,7 +363,7 @@ public class MainMenu2 extends javax.swing.JFrame {
                 main.revalidate();
             }
         });
-        MenuItem menuInsuranceEmploye = new MenuItem(null, false, iconInsuranceEmploye, "Asuransi Karyawan", new ActionListener() {
+        MenuItem menuInsuranceEmploye = new MenuItem(null, true, iconInsuranceEmploye, "Asuransi Karyawan", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 main.removeAll();
@@ -372,7 +372,7 @@ public class MainMenu2 extends javax.swing.JFrame {
                 main.revalidate();
             }
         });
-        MenuItem menuGaji = new MenuItem(null, false, iconGaji, "Gaji", new ActionListener() {
+        MenuItem menuGaji = new MenuItem(null, true, iconGaji, "Gaji", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 main.removeAll();

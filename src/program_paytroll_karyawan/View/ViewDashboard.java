@@ -8,6 +8,8 @@ package program_paytroll_karyawan.View;
 import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
+import program_paytroll_karyawan.Dao.AbsensiDAO;
+import program_paytroll_karyawan.Dao.KaryawanDAO;
 import program_paytroll_karyawan.Model.LoginModel;
 
 /**
@@ -31,6 +33,22 @@ public class ViewDashboard extends javax.swing.JPanel {
         pnAbsen.revalidate();
         
         getTime();
+        
+        System.out.println();
+        
+        AbsensiDAO absensiController = new AbsensiDAO();
+        int totalAbsen = absensiController.getTotalAbsenByMonth(Integer.parseInt(new SimpleDateFormat("MM").format(new java.util.Date())),loginModel.getEmploye_id());
+            totalAbsenTxt.setText(String.valueOf(totalAbsen));
+        
+        // Show Total Karyawan
+        if(loginModel.getRole().equals("admin")){
+            pnTotalEmploye.setVisible(true);
+            KaryawanDAO karyawanController = new KaryawanDAO();
+            int a = karyawanController.getTotalEmploye();
+            totalKaryawanTxt.setText(String.valueOf(a));
+        }else{
+            pnTotalEmploye.setVisible(false);
+        }
     }
     public void getTime(){
         Timer t2 = new Timer();
@@ -61,6 +79,12 @@ public class ViewDashboard extends javax.swing.JPanel {
         pnAbsen = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        pnTotalEmploye = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        totalKaryawanTxt = new javax.swing.JLabel();
+        pnTotalEmploye1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        totalAbsenTxt = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -83,6 +107,7 @@ public class ViewDashboard extends javax.swing.JPanel {
         timeTxt.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         pnAbsen.setBackground(new java.awt.Color(255, 102, 102));
+        pnAbsen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnAbsen.setLayout(new java.awt.BorderLayout());
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -90,6 +115,40 @@ public class ViewDashboard extends javax.swing.JPanel {
         jLabel3.setText("Master Data > Dashboard");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/program_paytroll_karyawan/Assets/Icons/speedometer.png"))); // NOI18N
+
+        pnTotalEmploye.setBackground(new java.awt.Color(255, 255, 255));
+        pnTotalEmploye.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnTotalEmploye.setLayout(new java.awt.BorderLayout());
+
+        jLabel4.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Total Karyawan");
+        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnTotalEmploye.add(jLabel4, java.awt.BorderLayout.PAGE_START);
+
+        totalKaryawanTxt.setBackground(new java.awt.Color(255, 255, 255));
+        totalKaryawanTxt.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        totalKaryawanTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalKaryawanTxt.setText("jLabel5");
+        totalKaryawanTxt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnTotalEmploye.add(totalKaryawanTxt, java.awt.BorderLayout.CENTER);
+
+        pnTotalEmploye1.setBackground(new java.awt.Color(255, 255, 255));
+        pnTotalEmploye1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnTotalEmploye1.setLayout(new java.awt.BorderLayout());
+
+        jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Total Absen");
+        jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        pnTotalEmploye1.add(jLabel5, java.awt.BorderLayout.PAGE_START);
+
+        totalAbsenTxt.setBackground(new java.awt.Color(255, 255, 255));
+        totalAbsenTxt.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        totalAbsenTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalAbsenTxt.setText("jLabel5");
+        totalAbsenTxt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pnTotalEmploye1.add(totalAbsenTxt, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,18 +160,22 @@ public class ViewDashboard extends javax.swing.JPanel {
                     .addComponent(namaTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nikTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(pnAbsen, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 641, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(timeTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)))))
+                                .addComponent(jLabel3))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(pnAbsen, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pnTotalEmploye, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnTotalEmploye1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -131,8 +194,11 @@ public class ViewDashboard extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nikTxt)
                 .addGap(30, 30, 30)
-                .addComponent(pnAbsen, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnAbsen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnTotalEmploye1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(pnTotalEmploye, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,9 +207,15 @@ public class ViewDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel namaTxt;
     private javax.swing.JLabel nikTxt;
     private javax.swing.JPanel pnAbsen;
+    private javax.swing.JPanel pnTotalEmploye;
+    private javax.swing.JPanel pnTotalEmploye1;
     private javax.swing.JLabel timeTxt;
+    private javax.swing.JLabel totalAbsenTxt;
+    private javax.swing.JLabel totalKaryawanTxt;
     // End of variables declaration//GEN-END:variables
 }

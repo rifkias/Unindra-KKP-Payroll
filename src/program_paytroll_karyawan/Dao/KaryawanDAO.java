@@ -30,9 +30,9 @@ import program_paytroll_karyawan.Model.LocationModel;
  */
 public class KaryawanDAO implements ImplementKaryawan{
     private List<KaryawanModel> list;
-    private LocationDAO locationController = new LocationDAO();
-    private DepartementDAO departementController = new DepartementDAO();
-    private DivisionDAO divisionController = new DivisionDAO();
+    private final LocationDAO locationController = new LocationDAO();
+    private final DepartementDAO departementController = new DepartementDAO();
+    private final DivisionDAO divisionController = new DivisionDAO();
     private final String DATE_FORMAT = "yyyy-MM-dd";
     private final SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
     
@@ -350,6 +350,27 @@ public class KaryawanDAO implements ImplementKaryawan{
         } catch (SQLException ex) {
             Logger.getLogger(DepartementDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
+        }
+    }
+
+    @Override
+    public int getTotalEmploye() {
+        try {
+            int a = 0;
+            Statement statement = DbConnection.getConnection().createStatement();
+            ResultSet result = statement.executeQuery("SELECT count(*) FROM employe WHERE is_active = 1");
+            
+            if(result.next()){
+             a = result.getInt(1);
+            }
+            
+            statement.close();
+            result.close();
+            
+            return a;
+        } catch (SQLException ex) {
+            Logger.getLogger(DepartementDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
         }
     }
     
