@@ -110,19 +110,25 @@ public class detailGaji extends javax.swing.JPanel {
         int idPeriode = this.getSelectedId(cbPeriodeList);
         
         if(idKaryawan > 0 && idPeriode > 0){
-             try {
-                File file = new File("src/Report/laporanDetailGaji.jasper");
-                HashMap<String, Object> parameters = new HashMap<>();
-                parameters.put("periode_id", idPeriode);
-                parameters.put("employe_id", idKaryawan);
-                
-                JasperReport jr = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
-                JasperViewer.viewReport(jp, false);
-                JasperViewer.setDefaultLookAndFeelDecorated(true);        
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            List<GajiModel> checkGaji = daoGaji.getGajiSearch(idKaryawan,idPeriode);
+            if(!checkGaji.isEmpty()){
+                try {
+                   File file = new File("src/Report/laporanDetailGaji.jasper");
+                   HashMap<String, Object> parameters = new HashMap<>();
+                   parameters.put("periode_id", idPeriode);
+                   parameters.put("employe_id", idKaryawan);
+
+                   JasperReport jr = (JasperReport) JRLoader.loadObject(file);
+                   JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
+                   JasperViewer.viewReport(jp, false);
+                   JasperViewer.setDefaultLookAndFeelDecorated(true);        
+               } catch (Exception e) {
+                   JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+               }   
+            }else{
+                JOptionPane.showMessageDialog(null, "Empty Data !!!");
             }
+             
         }else{
             if(idKaryawan == 0){
                 JOptionPane.showMessageDialog(null, "Select Karyawan For View !!!");
@@ -310,21 +316,26 @@ public class detailGaji extends javax.swing.JPanel {
         int idPeriode = this.getSelectedId(cbPeriodeList);
         
         if(idKaryawan > 0 && idPeriode > 0){
-            try {
-                File file = new File("src/Report/laporanDetailGaji.jasper");
-                HashMap<String, Object> parameters = new HashMap<>();
-                parameters.put("periode_id", idPeriode);
-                parameters.put("employe_id", idKaryawan);
+            List<GajiModel> checkGaji = daoGaji.getGajiSearch(idKaryawan,idPeriode);
+            if(!checkGaji.isEmpty()){
+                try {
+                    File file = new File("src/Report/laporanDetailGaji.jasper");
+                    HashMap<String, Object> parameters = new HashMap<>();
+                    parameters.put("periode_id", idPeriode);
+                    parameters.put("employe_id", idKaryawan);
 
-                JasperReport jr = (JasperReport) JRLoader.loadObject(file);
-                JasperPrint print = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
-                //tampil panel
-                reportView.setLayout(new BorderLayout());
-                reportView.repaint();
-                reportView.add(new JRViewer(print));
-                reportView.revalidate();
-            } catch (Exception e) {
-                JOptionPane.showConfirmDialog(null, e.getMessage());
+                    JasperReport jr = (JasperReport) JRLoader.loadObject(file);
+                    JasperPrint print = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
+                    //tampil panel
+                    reportView.setLayout(new BorderLayout());
+                    reportView.repaint();
+                    reportView.add(new JRViewer(print));
+                    reportView.revalidate();
+                } catch (Exception e) {
+                    JOptionPane.showConfirmDialog(null, e.getMessage());
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Empty Data !!!");
             }
         }else{
             if(idKaryawan == 0){
