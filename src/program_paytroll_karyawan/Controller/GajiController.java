@@ -126,6 +126,13 @@ public class GajiController {
 
                 // Add Lembur
                 GajiDetailModel modelDetail = new GajiDetailModel();
+                
+                modelDetail.setType("Gaji Pokok");
+                modelDetail.setRemarks("");
+                modelDetail.setTotal(model.getSalary());
+                detailGajis.add(modelDetail);
+                
+                modelDetail = new GajiDetailModel();
                 modelDetail.setType("Lembur");
                 modelDetail.setRemarks("Total Lembur = " + totalLembur);
                 modelDetail.setTotal(Double.valueOf(payLembur));
