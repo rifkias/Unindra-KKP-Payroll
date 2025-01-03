@@ -392,11 +392,21 @@ public class MainMenu2 extends javax.swing.JFrame {
             }
         });
         
+        MenuItem menuLaporanPembayaran = new MenuItem(null, false, null, "Laporan Pembayaran", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                main.removeAll();
+                main.add(new reportPembayaran(loginModel));
+                main.repaint();
+                main.revalidate();
+            }
+        });
+        
         MenuItem menuMaster = new MenuItem(iconMaster, false, null, "Master", null, menuLocation, menuDepartement, menuDivison, menuKaryawan, menuPeriode,menuTax,menuInsurance, menuInsuranceEmploye);
 
         MenuItem menuTransaksi = new MenuItem(iconTransaksi, false, null, "Transaksi", null, menuAbsensi, menuLembur, menuReimburse, menuGaji);
         
-        MenuItem menuLaporan = new MenuItem(iconReport, false, null, "Report", null, menuLaporanAbsen,menuLaporanLembur,menuLaporanKaryawan,menuLaporanGajiKaryawan,menuLaporanDetailGaji);
+        MenuItem menuLaporan = new MenuItem(iconReport, false, null, "Report", null, menuLaporanAbsen,menuLaporanLembur,menuLaporanKaryawan,menuLaporanGajiKaryawan,menuLaporanDetailGaji,menuLaporanPembayaran);
         addMenu(menuHome, menuMaster, menuTransaksi, menuLaporan);
 
         addMenu(menuLogout);

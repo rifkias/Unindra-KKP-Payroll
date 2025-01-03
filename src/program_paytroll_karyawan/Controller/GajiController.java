@@ -184,7 +184,7 @@ public class GajiController {
                 for (InsuranceEmployeModel asuransi : asuransis) {
                     modelDetail = new GajiDetailModel();
                     modelDetail.setType("Asuransi");
-                    modelDetail.setRemarks(asuransi.getInsurance().getName());
+                    modelDetail.setRemarks(asuransi.getInsurance().getName()+" : "+asuransi.getInsurance().getAsuransi_class());
                     double total = asuransi.getInsurance().getPremi();
                     totalPengurangan += total;
                     modelDetail.setTotal(total * -1.0);

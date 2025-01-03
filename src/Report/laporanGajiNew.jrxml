@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0945f48e-d596-445b-8482-7a5297ca711d">
-	<property name="ireport.zoom" value="0.636146427558729"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="0945f48e-d596-445b-8482-7a5297ca711d">
+	<property name="ireport.zoom" value="1.8150000000000095"/>
+	<property name="ireport.x" value="716"/>
+	<property name="ireport.y" value="273"/>
 	<parameter name="searchData" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -67,6 +67,9 @@ WHERE g.periode_id = $P{periode_id}]]>
 	<field name="division_name" class="java.lang.String"/>
 	<field name="departement_name" class="java.lang.String"/>
 	<field name="location_name" class="java.lang.String"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{gaji_bersih}]]></variableExpression>
+	</variable>
 	<background>
 		<band/>
 	</background>
@@ -142,14 +145,14 @@ WHERE g.periode_id = $P{periode_id}]]>
 				<text><![CDATA[Total Pendapatan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="571" y="0" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="62e723c5-2ba5-45e3-abdd-759796ef8632"/>
+				<reportElement mode="Opaque" x="571" y="0" width="131" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="62e723c5-2ba5-45e3-abdd-759796ef8632"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Total Pengurangan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="691" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5debb320-77e2-49e9-bfba-cd41e3da55c6"/>
+				<reportElement mode="Opaque" x="702" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5debb320-77e2-49e9-bfba-cd41e3da55c6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
 				</textElement>
@@ -242,7 +245,22 @@ WHERE g.periode_id = $P{periode_id}]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band/>
+		<band height="81">
+			<staticText>
+				<reportElement mode="Opaque" x="601" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="055a1c84-a1b8-4966-9251-7e524c4ef728"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="702" y="1" width="100" height="19" uuid="c797d2e8-9727-4e7d-855b-b1d604b9a588"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band height="186">
