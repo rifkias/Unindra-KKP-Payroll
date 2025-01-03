@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -43,14 +43,14 @@ import program_paytroll_karyawan.Table.TableReportGaji;
  */
 public class reportPembayaran extends javax.swing.JPanel {
 
-    private DefaultTableModel tableModelSlip; 
+    private DefaultTableModel tableModelSlip;
     private List<GajiModel> list;
     private final ImplementGaji daoGaji = new GajiDAO();
     private List<PeriodeModel> listPeriode;
     private List<KaryawanModel> listKaryawan;
     private final ImplementPeriode daoPeriode = new PeriodeDAO();
     private final ImplementKaryawan daoKaryawan = new KaryawanDAO();
-    
+
     /**
      * Creates new form slipGaji
      */
@@ -60,7 +60,6 @@ public class reportPembayaran extends javax.swing.JPanel {
 //        showData("");
     }
 
-     
     public void initPeriodeValue() {
         DefaultComboBoxModel comboModel = new DefaultComboBoxModel();
         comboModel.removeAllElements();
@@ -70,54 +69,55 @@ public class reportPembayaran extends javax.swing.JPanel {
         for (PeriodeModel item : listPeriode) {
             comboModel.addElement(new ComboBoxModel(item.getName() + " : " + item.getStart_date() + " - " + item.getEnd_date(), String.valueOf(item.getPeriode_id())));
         }
-        
+
         cbPeriodeList.setModel(comboModel);
 
     }
-    
+
     public int getSelectedId(JComboBox comboBox) {
         Object selectedLocation = comboBox.getSelectedItem();
         int id = 0;
-        if(!((ComboBoxModel) selectedLocation).getValue().equals("")){
+        if (!((ComboBoxModel) selectedLocation).getValue().equals("")) {
             id = Integer.valueOf(((ComboBoxModel) selectedLocation).getValue());
         }
         return id;
     }
-    
+
     private void clearData() {
         // Clear the table data
 //        showData(null);
     }
-    
+
     private void printReport() {
-                                  
+
         // TODO add your handling code here:
         int idPeriode = this.getSelectedId(cbPeriodeList);
         String reportType = String.valueOf(cbKaryawan.getSelectedItem()).replaceAll("\\s+", "");
-        
-        if(idPeriode > 0 && !reportType.equals("")){
-            try {
-                   File file = this.getJasperFile(reportType);
-                   HashMap<String, Object> parameters = new HashMap<>();
-                   parameters.put("periode_id", idPeriode);
 
-                   JasperReport jr = (JasperReport) JRLoader.loadObject(file);
-                   JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
-                   JasperViewer.viewReport(jp, false);
-                   JasperViewer.setDefaultLookAndFeelDecorated(true);        
-               } catch (Exception e) {
-                   JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-               } 
-        }else{
-            if(reportType.equals("")){
+        if (idPeriode > 0 && !reportType.equals("")) {
+            try {
+                File file = this.getJasperFile(reportType);
+                HashMap<String, Object> parameters = new HashMap<>();
+                parameters.put("periode_id", idPeriode);
+
+                JasperReport jr = (JasperReport) JRLoader.loadObject(file);
+                JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
+                JasperViewer.viewReport(jp, false);
+                JasperViewer.setDefaultLookAndFeelDecorated(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            if (reportType.equals("")) {
                 JOptionPane.showMessageDialog(null, "Select Type Report For View !!!");
             }
-            
-            if(idPeriode == 0){
+
+            if (idPeriode == 0) {
                 JOptionPane.showMessageDialog(null, "Select Periode For View !!!");
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -290,70 +290,69 @@ public class reportPembayaran extends javax.swing.JPanel {
         add(cardSlipGaji, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private File getJasperFile(String type){
+    private File getJasperFile(String type) {
         File file = null;
-        if(type.equals("Gaji")){
+        if (type.equals("Gaji")) {
             file = new File("src/Report/laporanGajiNew.jasper");
         }
-        
-        
-        if(type.equals("Pajak")){
+
+        if (type.equals("Pajak")) {
             file = new File("src/Report/laporanPembayaranPajak.jasper");
         }
-        
-        
-        if(type.equals("Asuransi")){
+
+        if (type.equals("Asuransi")) {
             file = new File("src/Report/laporanDetailGaji.jasper");
         }
-        
-        
-        if(type.equals("BPJS")){
+
+        if (type.equals("BPJS")) {
             file = new File("src/Report/laporanDetailGaji.jasper");
         }
-        
-        
-        if(type.equals("Reimburse")){
+
+        if (type.equals("Reimburse")) {
             file = new File("src/Report/laporanDetailGaji.jasper");
         }
-        
-        
+
         return file;
     }
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
         int idPeriode = this.getSelectedId(cbPeriodeList);
         String reportType = String.valueOf(cbKaryawan.getSelectedItem()).replaceAll("\\s+", "");
-        
-        if(idPeriode > 0 && !reportType.equals("")){
-            try {
-                   File file = this.getJasperFile(reportType);
-                   HashMap<String, Object> parameters = new HashMap<>();
-                   parameters.put("periode_id", idPeriode);
 
-                   JasperReport jr = (JasperReport) JRLoader.loadObject(file);
-                   JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
-                   JasperViewer.viewReport(jp, false);
-                   JasperViewer.setDefaultLookAndFeelDecorated(true);        
-               } catch (Exception e) {
-                   JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-               } 
-        }else{
-            if(reportType.equals("")){
+        if (idPeriode > 0 && !reportType.equals("")) {
+            try {
+                File file = this.getJasperFile(reportType);
+                HashMap<String, Object> parameters = new HashMap<>();
+                parameters.put("periode_id", idPeriode);
+
+                JasperReport jr = (JasperReport) JRLoader.loadObject(file);
+                JasperPrint print = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
+                reportView.setLayout(new BorderLayout());
+                reportView.repaint();
+                JRViewer viewReport = new JRViewer(print);
+                viewReport.setPreferredSize(new Dimension(getSize()));
+                reportView.add(new JRViewer(print));
+                reportView.revalidate();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            if (reportType.equals("")) {
                 JOptionPane.showMessageDialog(null, "Select Type Report For View !!!");
             }
-            
-            if(idPeriode == 0){
+
+            if (idPeriode == 0) {
                 JOptionPane.showMessageDialog(null, "Select Periode For View !!!");
             }
         }
-      
+
     }//GEN-LAST:event_btnCariActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         cbPeriodeList.setSelectedIndex(0);
         cbKaryawan.setSelectedIndex(0);
-        
+
         reportView.removeAll();
         reportView.repaint();
         reportView.revalidate();
