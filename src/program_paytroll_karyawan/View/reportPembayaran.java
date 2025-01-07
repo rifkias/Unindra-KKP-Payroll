@@ -301,15 +301,15 @@ public class reportPembayaran extends javax.swing.JPanel {
         }
 
         if (type.equals("Asuransi")) {
-            file = new File("src/Report/laporanDetailGaji.jasper");
+            file = new File("src/Report/laporanPembayaranAsuransi.jasper");
         }
 
         if (type.equals("BPJS")) {
-            file = new File("src/Report/laporanDetailGaji.jasper");
+            file = new File("src/Report/laporanPembayaranBpjs.jasper");
         }
 
         if (type.equals("Reimburse")) {
-            file = new File("src/Report/laporanDetailGaji.jasper");
+            file = new File("src/Report/laporanPembayaranReimburse.jasper");
         }
 
         return file;
