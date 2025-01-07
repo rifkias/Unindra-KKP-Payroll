@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2670f283-faaf-44a1-bebb-f89b92650d01">
-	<property name="ireport.zoom" value="1.0000000000000104"/>
+	<property name="ireport.zoom" value="0.7513148009015856"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="TglStart" class="java.util.Date">
@@ -38,157 +38,160 @@ $P!{searchCondition}]]>
 		<band/>
 	</background>
 	<title>
-		<band height="72">
+		<band height="130"/>
+	</title>
+	<pageHeader>
+		<band height="13">
 			<frame>
-				<reportElement uuid="6e668387-e71b-449d-bcac-5f4ca7123bdb" mode="Opaque" x="-20" y="-20" width="842" height="92" backcolor="#006699"/>
+				<reportElement mode="Opaque" x="-20" y="-148" width="842" height="146" backcolor="#FFFFFF" uuid="d302c59e-dbfa-4069-8f7a-2b4ef87e6c97"/>
+				<image>
+					<reportElement x="20" y="20" width="177" height="95" uuid="41c241fa-ae40-437f-b61f-78a3d3e794ac"/>
+					<imageExpression><![CDATA["../program_paytroll_karyawan/Assets/Images/logo kop.png"]]></imageExpression>
+				</image>
 				<staticText>
-					<reportElement uuid="db390fbb-9745-4d25-bfb1-37e0b5fd316e" x="20" y="0" width="555" height="43" forecolor="#FFFFFF"/>
+					<reportElement x="249" y="8" width="533" height="53" uuid="9861ca6b-ed7b-4c9a-828a-e62cb1917e12"/>
 					<textElement>
-						<font size="34" isBold="true"/>
-					</textElement>
-					<text><![CDATA[LAPORAN ABSENSI KARYAWAN]]></text>
-				</staticText>
-				<staticText>
-					<reportElement uuid="a74b0f78-9388-4a86-aaa9-6655efb2fba4" x="20" y="43" width="234" height="20" forecolor="#FFFFFF"/>
-					<textElement>
-						<font size="14" isBold="true"/>
+						<font size="35" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
+				<staticText>
+					<reportElement x="249" y="56" width="533" height="87" uuid="4dd00e47-ae58-4b99-82c0-56f533f6ef84"/>
+					<textElement textAlignment="Center">
+						<font size="15"/>
+					</textElement>
+					<text><![CDATA[Komp Graha Kencana, Jl. Perjuangan No.88 Blok BH, Kelurahan Kebon Jeruk, Kebon Jeruk, Jakarta Barat, DKI Jakarta 11530. 
+Telp. : 0857 8222 6262 
+Email : office@mssindonesia.co.id ]]></text>
+				</staticText>
+				<line>
+					<reportElement x="217" y="52" width="593" height="1" uuid="e935033d-065c-41a5-b585-75bba8ad7ed1"/>
+				</line>
+				<line>
+					<reportElement x="0" y="144" width="842" height="1" uuid="1f3c854f-2d38-41b1-b799-23b1e21abd4f"/>
+				</line>
 			</frame>
 		</band>
-	</title>
-	<pageHeader>
-		<band height="13"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="21">
 			<staticText>
-				<reportElement uuid="2e7524a8-8e20-412b-9e3c-d2d7444f0f9e" mode="Opaque" x="0" y="0" width="158" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="0" y="0" width="158" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2e7524a8-8e20-412b-9e3c-d2d7444f0f9e"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID Karyawan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="0639c5c2-d472-4d80-b0c0-480b33ecce8b" mode="Opaque" x="158" y="0" width="230" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="158" y="0" width="230" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0639c5c2-d472-4d80-b0c0-480b33ecce8b"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Karyawan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ef4c28b6-820f-4577-939a-3a517997f9ed" mode="Opaque" x="652" y="0" width="150" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="652" y="0" width="150" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ef4c28b6-820f-4577-939a-3a517997f9ed"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Check Out]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="fbadf173-e866-4770-a541-1c9860343b46" mode="Opaque" x="515" y="0" width="137" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="515" y="0" width="137" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fbadf173-e866-4770-a541-1c9860343b46"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Check In]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="09da265b-3606-454d-85fc-dbbb54194733" mode="Opaque" x="388" y="0" width="127" height="21" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="388" y="0" width="127" height="21" forecolor="#006699" backcolor="#E6E6E6" uuid="09da265b-3606-454d-85fc-dbbb54194733"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tanggal Absen]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="9682157b-53c1-4f6b-8e30-ae170c650e9a" x="-20" y="20" width="842" height="1" forecolor="#666666"/>
+				<reportElement x="-20" y="20" width="842" height="1" forecolor="#666666" uuid="9682157b-53c1-4f6b-8e30-ae170c650e9a"/>
 			</line>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="23">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="80adb5a7-5f53-4975-90df-e18cab0d2b4e" x="0" y="0" width="158" height="20"/>
+				<reportElement x="0" y="0" width="158" height="20" uuid="80adb5a7-5f53-4975-90df-e18cab0d2b4e"/>
 				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nik}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="2d6d479d-d662-4de3-92e6-13982c8ba27f" x="158" y="0" width="230" height="20"/>
+				<reportElement x="158" y="0" width="230" height="20" uuid="2d6d479d-d662-4de3-92e6-13982c8ba27f"/>
 				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{employe_name}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="5ee79aeb-d9c7-4a75-b69e-333da656898d" x="388" y="-1" width="127" height="21"/>
-				<textElement textAlignment="Center">
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{absensi_date}.format("yyyy-MM-dd")]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="e2e96879-e952-447a-9f06-cf2f017d2c3b" x="652" y="0" width="150" height="20"/>
+				<reportElement x="652" y="0" width="150" height="20" uuid="e2e96879-e952-447a-9f06-cf2f017d2c3b"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{check_out}.format("hh.mm")]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement uuid="6d6113ff-30ad-4c64-82e5-98790847d4ea" x="515" y="-1" width="137" height="21"/>
+				<reportElement x="515" y="-1" width="137" height="21" uuid="6d6113ff-30ad-4c64-82e5-98790847d4ea"/>
 				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{check_in}.format("hh.mm")]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement uuid="138ba332-3436-411f-9387-2e6b0f212630" x="0" y="20" width="802" height="1"/>
+				<reportElement x="0" y="20" width="802" height="1" uuid="138ba332-3436-411f-9387-2e6b0f212630"/>
 			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="388" y="0" width="127" height="21" uuid="5ee79aeb-d9c7-4a75-b69e-333da656898d"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{absensi_date}.format("yyyy-MM-dd")]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="187">
+		<band height="114">
 			<textField>
-				<reportElement uuid="e44f3a1b-5731-4d00-9158-0483818c997c" mode="Opaque" x="0" y="174" width="762" height="13" backcolor="#E6E6E6"/>
+				<reportElement mode="Opaque" x="0" y="94" width="762" height="20" backcolor="#E6E6E6" uuid="c6547b81-6f87-4c22-997c-8bf07c642456"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="c85ebf78-88ed-41a2-9666-9744db4f993a" mode="Opaque" x="762" y="174" width="40" height="13" backcolor="#E6E6E6"/>
-				<textElement/>
+				<reportElement mode="Opaque" x="762" y="94" width="40" height="20" backcolor="#E6E6E6" uuid="ae86b85e-45fb-4d5c-80aa-3438e5034ad9"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="ef6f3156-d035-491d-9aa0-ae0c6ab18090" x="0" y="174" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement uuid="ecf506c8-c9ff-4838-ad13-735f6d37f19a" x="665" y="77" width="37" height="13"/>
-				<textElement/>
-				<text><![CDATA[Jakarta, ]]></text>
-			</staticText>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="ef6f3156-d035-491d-9aa0-ae0c6ab18090" x="702" y="77" width="100" height="13"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement uuid="a7d67424-3da6-46b7-9289-07f290d100a0" x="652" y="137" width="138" height="20"/>
+				<reportElement x="654" y="24" width="108" height="20" uuid="1aa0a1e3-d156-45b9-98ef-5d2c55cc892a"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Manager Personalia]]></text>
+				<text><![CDATA[Manager HRD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="52c12520-20be-4457-98df-d5b70f212ae8" x="688" y="100" width="63" height="15"/>
+				<reportElement x="654" y="62" width="119" height="20" uuid="90837d25-c705-4eef-b979-f8dddddbbe79"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Head Office]]></text>
+				<text><![CDATA[Hari Darmawan]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="590" y="4" width="212" height="20" uuid="3abcbc28-75b0-44b5-aa2e-b65451ad6b7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd-MM-yyyy"))]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 	<summary>

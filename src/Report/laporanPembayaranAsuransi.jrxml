@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Asuransi" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="7de08665-d98e-4a0a-983c-eedb1f198335">
-	<property name="ireport.zoom" value="1.1000000000000074"/>
+	<property name="ireport.zoom" value="0.6830134553650752"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="periode_id" class="java.lang.String">
@@ -94,24 +94,34 @@ AND g.periode_id = $P{periode_id}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<rectangle>
-				<reportElement x="-20" y="0" width="595" height="79" backcolor="#006699" uuid="8a024d73-2055-4c26-a926-2ed6fc087d6b"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="14" y="0" width="526" height="48" forecolor="#FFFFFF" uuid="e1ce8a2f-f9ce-4b16-9ff0-14df5c3425b9"/>
-				<textElement>
-					<font size="34" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Laporan Pembayaran Asuransi]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="119" y="48" width="316" height="20" forecolor="#FFFFFF" uuid="891b2a65-10cd-4849-9559-b017830b7ddd"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
-			</staticText>
+		<band height="108" splitType="Stretch">
+			<frame>
+				<reportElement x="-21" y="0" width="595" height="108" uuid="e73e63f7-9445-4280-91da-251ed8865b32"/>
+				<image hAlign="Center" vAlign="Middle">
+					<reportElement x="21" y="10" width="122" height="67" uuid="710200dc-edf0-4dc9-9c2b-12ce94835b77"/>
+					<imageExpression><![CDATA["../program_paytroll_karyawan/Assets/Images/logo kop.png"]]></imageExpression>
+				</image>
+				<line>
+					<reportElement x="190" y="37" width="326" height="1" uuid="832d902a-7e91-488a-89db-2c2bc24f0673"/>
+				</line>
+				<staticText>
+					<reportElement x="190" y="10" width="326" height="37" uuid="2d57e5b9-a800-4833-9937-81fc23f34ea9"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="170" y="47" width="367" height="55" uuid="dac28328-4dfb-4370-8108-dc2e43b1728c"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Komp Graha Kencana, Jl. Perjuangan No.88 Blok BH, Kelurahan Kebon Jeruk, Kebon Jeruk, Jakarta Barat, DKI Jakarta 11530. 
+Telp. : 0857 8222 6262 
+Email : office@mssindonesia.co.id ]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="105" width="595" height="2" uuid="55d7aac6-4083-43a0-aa9f-16a496f476a7"/>
+				</line>
+			</frame>
 		</band>
 	</title>
 	<pageHeader>
@@ -296,48 +306,35 @@ AND g.periode_id = $P{periode_id}]]>
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="111" splitType="Stretch">
+		<band height="97" splitType="Stretch">
 			<textField>
-				<reportElement mode="Opaque" x="1" y="96" width="494" height="14" backcolor="#E6E6E6" uuid="37936bc2-92da-48a0-884e-49cfa50a4924"/>
+				<reportElement x="388" y="0" width="165" height="19" uuid="59885b6e-7a5c-4d31-994b-d1150937f71d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd-MM-yyyy"))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="411" y="57" width="119" height="20" uuid="69abccff-9de3-40b5-a9ff-8b804aab38a6"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hari Darmawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="19" width="108" height="20" uuid="d7bf98e1-e3ce-41b2-919a-9581fd598731"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Manager HRD]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="-1" y="79" width="513" height="18" backcolor="#E6E6E6" uuid="9e4bbdda-c4f0-4e9e-a2cd-f4c4dc8017da"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="1" y="96" width="147" height="14" uuid="09604fc0-4d0d-4a95-b8b4-473a0978e43f"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="435" y="3" width="119" height="20" uuid="6a98970e-18a1-4478-843c-a789587de6b9"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date().format("dd-MM-yyyy")]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="387" y="76" width="151" height="20" uuid="7cddfd42-44ce-4e17-8f13-324f717ee657"/>
-				<textElement textAlignment="Center">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Manager Personalia]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="420" y="23" width="108" height="20" uuid="4f42da39-69dc-4293-86bf-99ebc8ef4ad6"/>
-				<textElement textAlignment="Center">
-					<font size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Head Office]]></text>
-			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="495" y="96" width="60" height="14" backcolor="#E6E6E6" uuid="d29e3c70-ca48-4cc1-bae0-cf3444bd029c"/>
+				<reportElement mode="Opaque" x="512" y="79" width="40" height="18" backcolor="#E6E6E6" uuid="87519cee-e9af-430f-bf68-2c4a6a6f2c8a"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="387" y="3" width="48" height="20" uuid="5cd1af7c-39f5-4121-8952-9a61148190ba"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Jakarta, ]]></text>
-			</staticText>
 		</band>
 	</pageFooter>
 	<summary>
