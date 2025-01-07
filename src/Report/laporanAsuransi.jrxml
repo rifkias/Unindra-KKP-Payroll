@@ -88,7 +88,7 @@ LEFT JOIN insurance i on i.asuransi_id = ei.insurance_id]]>
 				<reportElement x="-20" y="0" width="595" height="108" uuid="e2d4f8b3-9322-4abd-a5e9-30cd7732cd58"/>
 				<image hAlign="Center" vAlign="Middle">
 					<reportElement x="21" y="10" width="122" height="67" uuid="79108b84-f196-43f4-b94c-93b5f44ca00c"/>
-					<imageExpression><![CDATA["../program_paytroll_karyawan/Assets/Images/logo kop.png"]]></imageExpression>
+					<imageExpression><![CDATA["logo_kop.jpg"]]></imageExpression>
 				</image>
 				<line>
 					<reportElement x="190" y="37" width="326" height="1" uuid="0eb29c4d-66e7-4923-ac42-5ab3129cfd77"/>
