@@ -11,7 +11,7 @@
  Target Server Version : 80040
  File Encoding         : 65001
 
- Date: 27/12/2024 01:56:42
+ Date: 07/01/2025 21:32:01
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `absensi` (
   `check_out` datetime DEFAULT NULL,
   PRIMARY KEY (`absensi_id`),
   KEY `employe_reference_idx` (`employe_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 
 -- ----------------------------
 -- Records of absensi
@@ -46,6 +46,7 @@ INSERT INTO `absensi` VALUES (10, 1, '2024-09-18', '2024-09-18 15:24:49', '2024-
 INSERT INTO `absensi` VALUES (11, 1, '2024-12-03', '2024-12-03 09:57:46', '2024-12-03 09:57:48');
 INSERT INTO `absensi` VALUES (12, 1, '2024-12-07', '2024-12-07 22:27:40', '2024-12-07 23:18:04');
 INSERT INTO `absensi` VALUES (13, 1, '2024-12-21', '2024-12-21 08:31:42', '2024-12-25 19:14:49');
+INSERT INTO `absensi` VALUES (14, 1, '2024-12-29', '2024-12-29 16:56:07', '2024-12-29 16:56:09');
 COMMIT;
 
 -- ----------------------------
@@ -187,18 +188,24 @@ CREATE TABLE `gaji` (
   KEY `fk_periode_idx` (`periode_id`),
   CONSTRAINT `fk_employe` FOREIGN KEY (`employe_id`) REFERENCES `employe` (`employe_id`),
   CONSTRAINT `fk_periode` FOREIGN KEY (`periode_id`) REFERENCES `periode` (`periode_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of gaji
 -- ----------------------------
 BEGIN;
-INSERT INTO `gaji` VALUES (93, 1, 2, 0, 1, 6730000, 218600, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
-INSERT INTO `gaji` VALUES (94, 10, 0, 0, 1, 4500000, 90000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
-INSERT INTO `gaji` VALUES (95, 11, 0, 0, 1, 2500000, 50000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
-INSERT INTO `gaji` VALUES (96, 12, 0, 0, 1, 3000000, 90000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
-INSERT INTO `gaji` VALUES (97, 13, 0, 0, 1, 3000000, 60000, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
-INSERT INTO `gaji` VALUES (98, 15, 0, 0, 1, 2222222, 44444, '2024-12-27 01:53:32', '2024-12-27 01:53:32');
+INSERT INTO `gaji` VALUES (135, 1, 0, 0, 3, 5430000, 272900, '2025-01-03 07:46:36', '2025-01-03 07:46:36');
+INSERT INTO `gaji` VALUES (136, 10, 0, 0, 3, 4500000, 135000, '2025-01-03 07:46:36', '2025-01-03 07:46:36');
+INSERT INTO `gaji` VALUES (137, 11, 0, 0, 3, 2500000, 75000, '2025-01-03 07:46:36', '2025-01-03 07:46:36');
+INSERT INTO `gaji` VALUES (138, 12, 0, 0, 3, 3000000, 120000, '2025-01-03 07:46:36', '2025-01-03 07:46:36');
+INSERT INTO `gaji` VALUES (139, 13, 0, 0, 3, 3000000, 90000, '2025-01-03 07:46:36', '2025-01-03 07:46:36');
+INSERT INTO `gaji` VALUES (140, 15, 0, 0, 3, 2222222, 66666, '2025-01-03 07:46:36', '2025-01-03 07:46:36');
+INSERT INTO `gaji` VALUES (141, 1, 2, 0, 1, 6730000, 272900, '2025-01-03 07:46:55', '2025-01-03 07:46:55');
+INSERT INTO `gaji` VALUES (142, 10, 0, 0, 1, 4500000, 135000, '2025-01-03 07:46:55', '2025-01-03 07:46:55');
+INSERT INTO `gaji` VALUES (143, 11, 0, 0, 1, 2500000, 75000, '2025-01-03 07:46:55', '2025-01-03 07:46:55');
+INSERT INTO `gaji` VALUES (144, 12, 0, 0, 1, 3000000, 120000, '2025-01-03 07:46:55', '2025-01-03 07:46:55');
+INSERT INTO `gaji` VALUES (145, 13, 0, 0, 1, 3000000, 90000, '2025-01-03 07:46:55', '2025-01-03 07:46:55');
+INSERT INTO `gaji` VALUES (146, 15, 0, 0, 1, 2222222, 66666, '2025-01-03 07:46:55', '2025-01-03 07:46:55');
 COMMIT;
 
 -- ----------------------------
@@ -214,35 +221,80 @@ CREATE TABLE `gaji_detail` (
   PRIMARY KEY (`gaji_detail_id`),
   KEY `fk_gaji_detail_1_idx` (`gaji_id`),
   CONSTRAINT `header_gaji` FOREIGN KEY (`gaji_id`) REFERENCES `gaji` (`gaji_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=257 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=527 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of gaji_detail
 -- ----------------------------
 BEGIN;
-INSERT INTO `gaji_detail` VALUES (234, 93, 'Lembur', 'Total Lembur = 0', 0);
-INSERT INTO `gaji_detail` VALUES (235, 93, 'Absen', 'Total Absen = 2', 100000);
-INSERT INTO `gaji_detail` VALUES (236, 93, 'Pajak', 'Pajak Penghasilan', -108600.00245999999);
-INSERT INTO `gaji_detail` VALUES (237, 93, 'Reimbursment', 'No 123-12 : Makan Siang', 200000);
-INSERT INTO `gaji_detail` VALUES (238, 93, 'Reimbursment', 'No 123-12 : Hotel', 1000000);
-INSERT INTO `gaji_detail` VALUES (239, 93, 'Asuransi', 'Asuransi Kendaraan', -30000);
-INSERT INTO `gaji_detail` VALUES (240, 93, 'Asuransi', 'Asuransi Kesehatan', -80000);
-INSERT INTO `gaji_detail` VALUES (241, 94, 'Lembur', 'Total Lembur = 0', 0);
-INSERT INTO `gaji_detail` VALUES (242, 94, 'Absen', 'Total Absen = 0', 0);
-INSERT INTO `gaji_detail` VALUES (243, 94, 'Pajak', 'Pajak Penghasilan', -90000);
-INSERT INTO `gaji_detail` VALUES (244, 95, 'Lembur', 'Total Lembur = 0', 0);
-INSERT INTO `gaji_detail` VALUES (245, 95, 'Absen', 'Total Absen = 0', 0);
-INSERT INTO `gaji_detail` VALUES (246, 95, 'Pajak', 'Pajak Penghasilan', -50000);
-INSERT INTO `gaji_detail` VALUES (247, 96, 'Lembur', 'Total Lembur = 0', 0);
-INSERT INTO `gaji_detail` VALUES (248, 96, 'Absen', 'Total Absen = 0', 0);
-INSERT INTO `gaji_detail` VALUES (249, 96, 'Pajak', 'Pajak Penghasilan', -60000);
-INSERT INTO `gaji_detail` VALUES (250, 96, 'Asuransi', 'Asuransi Kesehatan', -30000);
-INSERT INTO `gaji_detail` VALUES (251, 97, 'Lembur', 'Total Lembur = 0', 0);
-INSERT INTO `gaji_detail` VALUES (252, 97, 'Absen', 'Total Absen = 0', 0);
-INSERT INTO `gaji_detail` VALUES (253, 97, 'Pajak', 'Pajak Penghasilan', -60000);
-INSERT INTO `gaji_detail` VALUES (254, 98, 'Lembur', 'Total Lembur = 0', 0);
-INSERT INTO `gaji_detail` VALUES (255, 98, 'Absen', 'Total Absen = 0', 0);
-INSERT INTO `gaji_detail` VALUES (256, 98, 'Pajak', 'Pajak Penghasilan', -44444.44);
+INSERT INTO `gaji_detail` VALUES (459, 135, 'Gaji Pokok', '', 5430000.123);
+INSERT INTO `gaji_detail` VALUES (460, 135, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (461, 135, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (462, 135, 'BPJS', 'Pembayaran BPJS Kesehatan', -54300.001229999994);
+INSERT INTO `gaji_detail` VALUES (463, 135, 'Pajak', 'Pajak Penghasilan', -108600.00245999999);
+INSERT INTO `gaji_detail` VALUES (464, 135, 'Asuransi', 'Asuransi Kendaraan : Mobil', -30000);
+INSERT INTO `gaji_detail` VALUES (465, 135, 'Asuransi', 'Asuransi Kesehatan : Kelas 1', -80000);
+INSERT INTO `gaji_detail` VALUES (466, 136, 'Gaji Pokok', '', 4500000);
+INSERT INTO `gaji_detail` VALUES (467, 136, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (468, 136, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (469, 136, 'BPJS', 'Pembayaran BPJS Kesehatan', -45000);
+INSERT INTO `gaji_detail` VALUES (470, 136, 'Pajak', 'Pajak Penghasilan', -90000);
+INSERT INTO `gaji_detail` VALUES (471, 137, 'Gaji Pokok', '', 2500000);
+INSERT INTO `gaji_detail` VALUES (472, 137, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (473, 137, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (474, 137, 'BPJS', 'Pembayaran BPJS Kesehatan', -25000);
+INSERT INTO `gaji_detail` VALUES (475, 137, 'Pajak', 'Pajak Penghasilan', -50000);
+INSERT INTO `gaji_detail` VALUES (476, 138, 'Gaji Pokok', '', 3000000);
+INSERT INTO `gaji_detail` VALUES (477, 138, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (478, 138, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (479, 138, 'BPJS', 'Pembayaran BPJS Kesehatan', -30000);
+INSERT INTO `gaji_detail` VALUES (480, 138, 'Pajak', 'Pajak Penghasilan', -60000);
+INSERT INTO `gaji_detail` VALUES (481, 138, 'Asuransi', 'Asuransi Kesehatan : Kelas 3', -30000);
+INSERT INTO `gaji_detail` VALUES (482, 139, 'Gaji Pokok', '', 3000000);
+INSERT INTO `gaji_detail` VALUES (483, 139, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (484, 139, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (485, 139, 'BPJS', 'Pembayaran BPJS Kesehatan', -30000);
+INSERT INTO `gaji_detail` VALUES (486, 139, 'Pajak', 'Pajak Penghasilan', -60000);
+INSERT INTO `gaji_detail` VALUES (487, 140, 'Gaji Pokok', '', 2222222);
+INSERT INTO `gaji_detail` VALUES (488, 140, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (489, 140, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (490, 140, 'BPJS', 'Pembayaran BPJS Kesehatan', -22222.22);
+INSERT INTO `gaji_detail` VALUES (491, 140, 'Pajak', 'Pajak Penghasilan', -44444.44);
+INSERT INTO `gaji_detail` VALUES (492, 141, 'Gaji Pokok', '', 5430000.123);
+INSERT INTO `gaji_detail` VALUES (493, 141, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (494, 141, 'Absen', 'Total Absen = 2', 100000);
+INSERT INTO `gaji_detail` VALUES (495, 141, 'BPJS', 'Pembayaran BPJS Kesehatan', -54300.001229999994);
+INSERT INTO `gaji_detail` VALUES (496, 141, 'Pajak', 'Pajak Penghasilan', -108600.00245999999);
+INSERT INTO `gaji_detail` VALUES (497, 141, 'Reimbursment', 'No 123-12 : Makan Siang', 200000);
+INSERT INTO `gaji_detail` VALUES (498, 141, 'Reimbursment', 'No 123-12 : Hotel', 1000000);
+INSERT INTO `gaji_detail` VALUES (499, 141, 'Asuransi', 'Asuransi Kendaraan : Mobil', -30000);
+INSERT INTO `gaji_detail` VALUES (500, 141, 'Asuransi', 'Asuransi Kesehatan : Kelas 1', -80000);
+INSERT INTO `gaji_detail` VALUES (501, 142, 'Gaji Pokok', '', 4500000);
+INSERT INTO `gaji_detail` VALUES (502, 142, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (503, 142, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (504, 142, 'BPJS', 'Pembayaran BPJS Kesehatan', -45000);
+INSERT INTO `gaji_detail` VALUES (505, 142, 'Pajak', 'Pajak Penghasilan', -90000);
+INSERT INTO `gaji_detail` VALUES (506, 143, 'Gaji Pokok', '', 2500000);
+INSERT INTO `gaji_detail` VALUES (507, 143, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (508, 143, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (509, 143, 'BPJS', 'Pembayaran BPJS Kesehatan', -25000);
+INSERT INTO `gaji_detail` VALUES (510, 143, 'Pajak', 'Pajak Penghasilan', -50000);
+INSERT INTO `gaji_detail` VALUES (511, 144, 'Gaji Pokok', '', 3000000);
+INSERT INTO `gaji_detail` VALUES (512, 144, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (513, 144, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (514, 144, 'BPJS', 'Pembayaran BPJS Kesehatan', -30000);
+INSERT INTO `gaji_detail` VALUES (515, 144, 'Pajak', 'Pajak Penghasilan', -60000);
+INSERT INTO `gaji_detail` VALUES (516, 144, 'Asuransi', 'Asuransi Kesehatan : Kelas 3', -30000);
+INSERT INTO `gaji_detail` VALUES (517, 145, 'Gaji Pokok', '', 3000000);
+INSERT INTO `gaji_detail` VALUES (518, 145, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (519, 145, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (520, 145, 'BPJS', 'Pembayaran BPJS Kesehatan', -30000);
+INSERT INTO `gaji_detail` VALUES (521, 145, 'Pajak', 'Pajak Penghasilan', -60000);
+INSERT INTO `gaji_detail` VALUES (522, 146, 'Gaji Pokok', '', 2222222);
+INSERT INTO `gaji_detail` VALUES (523, 146, 'Lembur', 'Total Lembur = 0', 0);
+INSERT INTO `gaji_detail` VALUES (524, 146, 'Absen', 'Total Absen = 0', 0);
+INSERT INTO `gaji_detail` VALUES (525, 146, 'BPJS', 'Pembayaran BPJS Kesehatan', -22222.22);
+INSERT INTO `gaji_detail` VALUES (526, 146, 'Pajak', 'Pajak Penghasilan', -44444.44);
 COMMIT;
 
 -- ----------------------------
