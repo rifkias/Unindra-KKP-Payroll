@@ -5,6 +5,7 @@
  */
 package program_paytroll_karyawan.Controller;
 
+import java.io.File;
 import program_paytroll_karyawan.Config.DbConnection;
 import program_paytroll_karyawan.Model.LoginModel;
 import java.sql.Connection;
@@ -30,14 +31,19 @@ public class LoginController {
     public LoginController(Form_Login panel) {
         this.panel = panel;
         implementLogin = new LoginDAO();
+        
     }
     
     public void authUser(){
         LoginModel loginModel = new LoginModel();
         loginModel.setUsername(panel.getUsername().getText());
-        String password = implementLogin.encryptPassword(panel.getPassword().getText());
+        File currentDirFile = new File("");
+        String helper = (currentDirFile.getAbsolutePath()+"/src/Report/logo_kop.jpg").replace("/","//");
         
+        String password = implementLogin.encryptPassword(panel.getPassword().getText());
         loginModel.setPassword(password);
+        loginModel.setPath(helper);
+        
         String Response = implementLogin.authUser(loginModel);
         if(Response.equals("Success")){
 //            new MainMenu_Utama(loginModel).setVisible(true);

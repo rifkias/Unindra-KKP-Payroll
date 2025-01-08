@@ -24,6 +24,15 @@ public class LoginModel {
     private int is_active;
     private String created_by;
     private Date created_at;
+    private String path;
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
     
     public int getEmploye_id() {
         return employe_id;
