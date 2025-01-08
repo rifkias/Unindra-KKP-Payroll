@@ -6,6 +6,7 @@
 	<parameter name="periode_id" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="imagePath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT 
 p2.name as periode_name,
@@ -97,9 +98,9 @@ AND g.periode_id = $P{periode_id}]]>
 		<band height="108" splitType="Stretch">
 			<frame>
 				<reportElement x="-21" y="0" width="595" height="108" uuid="e73e63f7-9445-4280-91da-251ed8865b32"/>
-				<image hAlign="Center" vAlign="Middle">
+				<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
 					<reportElement x="21" y="10" width="122" height="67" uuid="710200dc-edf0-4dc9-9c2b-12ce94835b77"/>
-					<imageExpression><![CDATA["logo_kop.jpg"]]></imageExpression>
+					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<line>
 					<reportElement x="190" y="37" width="326" height="1" uuid="832d902a-7e91-488a-89db-2c2bc24f0673"/>

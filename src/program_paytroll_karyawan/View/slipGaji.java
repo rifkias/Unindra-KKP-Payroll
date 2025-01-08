@@ -42,6 +42,7 @@ public class slipGaji extends javax.swing.JPanel {
     private final ImplementGaji daoGaji = new GajiDAO();
     private List<PeriodeModel> listPeriode;
     private final ImplementPeriode daoPeriode = new PeriodeDAO();
+    String path;
     
     /**
      * Creates new form slipGaji
@@ -51,6 +52,7 @@ public class slipGaji extends javax.swing.JPanel {
         this.isiTable();
         this.initPeriodeValue();
 //        showData("");
+        path = loginModel.getPath();
     }
 
     public void isiTable(){
@@ -112,6 +114,7 @@ public class slipGaji extends javax.swing.JPanel {
         try {
             HashMap<String, Object> parameters = new HashMap<>();
             parameters.put("periode_id", id);
+            parameters.put("imagePath",this.path);
             File file = new File("src/Report/laporanGajiNew.jasper");
             JasperReport jr = (JasperReport) JRLoader.loadObject(file);
             JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());

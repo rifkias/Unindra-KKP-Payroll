@@ -50,6 +50,7 @@ public class reportPembayaran extends javax.swing.JPanel {
     private List<KaryawanModel> listKaryawan;
     private final ImplementPeriode daoPeriode = new PeriodeDAO();
     private final ImplementKaryawan daoKaryawan = new KaryawanDAO();
+    String path;
 
     /**
      * Creates new form slipGaji
@@ -57,6 +58,9 @@ public class reportPembayaran extends javax.swing.JPanel {
     public reportPembayaran(LoginModel loginModel) {
         initComponents();
         this.initPeriodeValue();
+        path = loginModel.getPath();
+        jLabel3.setVisible(false);
+        cbPeriodeList.setVisible(false);
 //        showData("");
     }
 
@@ -99,6 +103,7 @@ public class reportPembayaran extends javax.swing.JPanel {
                 File file = this.getJasperFile(reportType);
                 HashMap<String, Object> parameters = new HashMap<>();
                 parameters.put("periode_id", idPeriode);
+                parameters.put("imagePath",this.path);
 
                 JasperReport jr = (JasperReport) JRLoader.loadObject(file);
                 JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
@@ -164,7 +169,12 @@ public class reportPembayaran extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Type");
 
-        cbKaryawan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Gaji", "Pajak", "Asuransi", "BPJS", "Reimburse" }));
+        cbKaryawan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Gaji", "Pajak", "Asuransi", "BPJS", "Reimburse", "Asuransi Karyawan" }));
+        cbKaryawan.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbKaryawanItemStateChanged(evt);
+            }
+        });
 
         cbPeriodeList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -204,7 +214,7 @@ public class reportPembayaran extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,15 +227,15 @@ public class reportPembayaran extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbPeriodeList, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbPeriodeList, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,10 +322,18 @@ public class reportPembayaran extends javax.swing.JPanel {
             file = new File("src/Report/laporanPembayaranReimburse.jasper");
         }
 
+         if (type.equals("AsuransiKaryawan")) {
+            file = new File("src/Report/laporanAsuransi.jasper");
+        }
+
         return file;
     }
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         // TODO add your handling code here:
+        reportView.removeAll();
+        reportView.repaint();
+        reportView.revalidate();
+        
         int idPeriode = this.getSelectedId(cbPeriodeList);
         String reportType = String.valueOf(cbKaryawan.getSelectedItem()).replaceAll("\\s+", "");
 
@@ -323,7 +341,10 @@ public class reportPembayaran extends javax.swing.JPanel {
             try {
                 File file = this.getJasperFile(reportType);
                 HashMap<String, Object> parameters = new HashMap<>();
-                parameters.put("periode_id", idPeriode);
+                if(!reportType.equals("AsuransiKaryawan")){
+                    parameters.put("periode_id", idPeriode);
+                }
+                parameters.put("imagePath",this.path);
 
                 JasperReport jr = (JasperReport) JRLoader.loadObject(file);
                 JasperPrint print = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
@@ -362,6 +383,28 @@ public class reportPembayaran extends javax.swing.JPanel {
         // TODO add your handling code here:
         printReport();
     }//GEN-LAST:event_btnPrintActionPerformed
+
+    private void cbKaryawanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbKaryawanItemStateChanged
+        // TODO add your handling code here:
+        
+        String selected = String.valueOf(cbKaryawan.getSelectedItem()).replaceAll("\\s+", "");
+        
+        if(selected.equals("")){
+            jLabel3.setVisible(false);
+            cbPeriodeList.setVisible(false);
+        }else if(selected.equals("AsuransiKaryawan")){
+            
+            jLabel3.setVisible(false);
+            cbPeriodeList.setVisible(false);
+        }
+        
+        else{
+            
+            jLabel3.setVisible(true);
+            cbPeriodeList.setVisible(true);
+        }
+        System.out.println(selected);
+    }//GEN-LAST:event_cbKaryawanItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

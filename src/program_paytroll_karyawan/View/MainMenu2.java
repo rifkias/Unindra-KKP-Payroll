@@ -30,6 +30,8 @@ public class MainMenu2 extends javax.swing.JFrame {
         loginModel = model;
         this.addSidebar();
         showDashboard();
+        
+        System.out.println(ClassLoader.getSystemResource("").getPath());
     }
 
     /**

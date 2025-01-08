@@ -12,6 +12,7 @@
 	<parameter name="searchCondition" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="imagePath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT e.nik, e.employe_name, a.absensi_date, a.check_in, a.check_out
 FROM employe e
@@ -44,19 +45,19 @@ $P!{searchCondition}]]>
 		<band height="13">
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="-148" width="842" height="146" backcolor="#FFFFFF" uuid="d302c59e-dbfa-4069-8f7a-2b4ef87e6c97"/>
-				<image>
+				<image onErrorType="Blank">
 					<reportElement x="20" y="20" width="177" height="95" uuid="41c241fa-ae40-437f-b61f-78a3d3e794ac"/>
-					<imageExpression><![CDATA["../program_paytroll_karyawan/Assets/Images/logo kop.png"]]></imageExpression>
+					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement x="249" y="8" width="533" height="53" uuid="9861ca6b-ed7b-4c9a-828a-e62cb1917e12"/>
-					<textElement>
+					<reportElement x="217" y="8" width="593" height="53" uuid="9861ca6b-ed7b-4c9a-828a-e62cb1917e12"/>
+					<textElement textAlignment="Center">
 						<font size="35" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="249" y="56" width="533" height="87" uuid="4dd00e47-ae58-4b99-82c0-56f533f6ef84"/>
+					<reportElement x="217" y="56" width="593" height="87" uuid="4dd00e47-ae58-4b99-82c0-56f533f6ef84"/>
 					<textElement textAlignment="Center">
 						<font size="15"/>
 					</textElement>

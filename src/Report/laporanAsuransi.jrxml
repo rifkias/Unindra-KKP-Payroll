@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Asuransi" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7de08665-d98e-4a0a-983c-eedb1f198335">
-	<property name="ireport.zoom" value="0.9090909090909155"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="imagePath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT 
 ei.*,
@@ -86,16 +87,16 @@ LEFT JOIN insurance i on i.asuransi_id = ei.insurance_id]]>
 		<band height="108" splitType="Stretch">
 			<frame>
 				<reportElement x="-20" y="0" width="595" height="108" uuid="e2d4f8b3-9322-4abd-a5e9-30cd7732cd58"/>
-				<image hAlign="Center" vAlign="Middle">
+				<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
 					<reportElement x="21" y="10" width="122" height="67" uuid="79108b84-f196-43f4-b94c-93b5f44ca00c"/>
-					<imageExpression><![CDATA["logo_kop.jpg"]]></imageExpression>
+					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<line>
 					<reportElement x="190" y="37" width="326" height="1" uuid="0eb29c4d-66e7-4923-ac42-5ab3129cfd77"/>
 				</line>
 				<staticText>
-					<reportElement x="190" y="10" width="326" height="37" uuid="ed039f68-e30e-449c-a7a7-6e9d784a91d7"/>
-					<textElement>
+					<reportElement x="170" y="10" width="367" height="37" uuid="ed039f68-e30e-449c-a7a7-6e9d784a91d7"/>
+					<textElement textAlignment="Center">
 						<font size="22" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>

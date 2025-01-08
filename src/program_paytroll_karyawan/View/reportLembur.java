@@ -32,6 +32,7 @@ import program_paytroll_karyawan.Model.LoginModel;
 public class reportLembur extends javax.swing.JPanel {
 
     private DefaultTableModel tableLembur;
+    String path;
     /**
      * Creates new form reportLembur
      */
@@ -39,6 +40,7 @@ public class reportLembur extends javax.swing.JPanel {
         initComponents();
         initTable();
         showData();
+        path = loginModel.getPath();
     }
 
     public String getMonthName(int id){
@@ -125,6 +127,7 @@ public class reportLembur extends javax.swing.JPanel {
         try {
             HashMap<String, Object> parameters = new HashMap<>();
             parameters.put("periodeBulan", getMonthName(jMonthPeriode.getMonth()));
+            parameters.put("imagePath",this.path);
             
             File file = new File("src/Report/laporanLembur.jasper");
             JasperReport jr = (JasperReport) JRLoader.loadObject(file);

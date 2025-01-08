@@ -34,6 +34,7 @@ public class reportAbsensi extends javax.swing.JPanel {
    // private Connection connection;
     private DefaultTableModel tableModel;
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String path;
     /**
      * Creates new form reportAbsensi
      */
@@ -41,6 +42,7 @@ public class reportAbsensi extends javax.swing.JPanel {
         initComponents();
     //    connectToDatabase();
         initTable();
+        path = loginModel.getPath();
         showData();
     }
 
@@ -134,6 +136,8 @@ public class reportAbsensi extends javax.swing.JPanel {
                 whereCondition += "WHERE a.absensi_date BETWEEN '"+sdf.format(startDate)+"' AND '"+sdf.format(endDate)+"'";
             }
             parameters.put("searchCondition", whereCondition);
+            
+            parameters.put("imagePath",this.path);
 //            parameters.put("TglStart", startDate);
 //            parameters.put("TglEnd", endDate);
             

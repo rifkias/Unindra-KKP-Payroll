@@ -12,6 +12,7 @@
 	<parameter name="periode_id" class="java.lang.String">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
+	<parameter name="imagePath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT
 g.*,
@@ -80,9 +81,9 @@ WHERE g.periode_id = $P{periode_id}]]>
 		<band height="127">
 			<frame>
 				<reportElement mode="Opaque" x="-19" y="-19" width="842" height="146" backcolor="#FFFFFF" uuid="c71973f2-775c-4ebf-8437-606da5b591bf"/>
-				<image>
+				<image isUsingCache="true" onErrorType="Blank">
 					<reportElement x="20" y="20" width="177" height="95" uuid="44427e0e-0e82-4868-a871-0044b638f2e0"/>
-					<imageExpression><![CDATA["../program_paytroll_karyawan/Assets/Images/logo kop.png"]]></imageExpression>
+					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<staticText>
 					<reportElement x="249" y="8" width="533" height="53" uuid="af1f3194-9fe6-49b1-ad49-35fc67cc8143"/>
