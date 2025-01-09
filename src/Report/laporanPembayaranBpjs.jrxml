@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PembayaranBPJS" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="b5e28852-4786-4e3e-aeab-4d38138a4fd7">
-	<property name="ireport.zoom" value="0.46650738020973703"/>
+	<property name="ireport.zoom" value="1.1000000000000094"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="periode_id" class="java.lang.Integer">
@@ -59,17 +59,17 @@ AND g.periode_id = $P{periode_id}]]>
 					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<line>
-					<reportElement x="190" y="37" width="326" height="1" uuid="e795af04-5026-4817-8b95-9b92a1038393"/>
+					<reportElement x="170" y="37" width="363" height="1" uuid="e795af04-5026-4817-8b95-9b92a1038393"/>
 				</line>
 				<staticText>
-					<reportElement x="190" y="10" width="326" height="37" uuid="1cbc0bb6-abd4-4685-b8b9-a26b38e9660c"/>
-					<textElement>
+					<reportElement x="170" y="10" width="363" height="37" uuid="1cbc0bb6-abd4-4685-b8b9-a26b38e9660c"/>
+					<textElement textAlignment="Center">
 						<font size="22" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="170" y="47" width="367" height="55" uuid="43c75bea-65d7-49ac-a75c-d1bb48a7d06e"/>
+					<reportElement x="170" y="47" width="363" height="55" uuid="43c75bea-65d7-49ac-a75c-d1bb48a7d06e"/>
 					<textElement textAlignment="Center"/>
 					<text><![CDATA[Komp Graha Kencana, Jl. Perjuangan No.88 Blok BH, Kelurahan Kebon Jeruk, Kebon Jeruk, Jakarta Barat, DKI Jakarta 11530. 
 Telp. : 0857 8222 6262 

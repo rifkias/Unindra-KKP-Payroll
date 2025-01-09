@@ -86,14 +86,14 @@ WHERE g.periode_id = $P{periode_id}]]>
 					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement x="249" y="8" width="533" height="53" uuid="af1f3194-9fe6-49b1-ad49-35fc67cc8143"/>
-					<textElement>
+					<reportElement x="217" y="8" width="593" height="53" uuid="af1f3194-9fe6-49b1-ad49-35fc67cc8143"/>
+					<textElement textAlignment="Center">
 						<font size="35" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="249" y="56" width="533" height="87" uuid="8d98aba5-d47b-417c-9e07-f1767401be3a"/>
+					<reportElement x="217" y="56" width="593" height="87" uuid="8d98aba5-d47b-417c-9e07-f1767401be3a"/>
 					<textElement textAlignment="Center">
 						<font size="15"/>
 					</textElement>

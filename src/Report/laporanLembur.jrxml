@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62d75d74-c994-485f-ab4b-fc9b124a2a7f">
 	<property name="ireport.zoom" value="0.826446280991736"/>
-	<property name="ireport.x" value="28"/>
+	<property name="ireport.x" value="18"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="periodeBulan" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -44,14 +44,14 @@ GROUP BY nameMonth,employe_id]]>
 					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement x="249" y="8" width="533" height="53" uuid="9a84dc50-09ed-45a7-a807-36be734286ad"/>
-					<textElement>
+					<reportElement x="217" y="8" width="593" height="53" uuid="9a84dc50-09ed-45a7-a807-36be734286ad"/>
+					<textElement textAlignment="Center">
 						<font size="35" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="249" y="56" width="533" height="87" uuid="a72f045a-5d29-4236-a1c3-93e3990cb027"/>
+					<reportElement x="217" y="56" width="593" height="87" uuid="a72f045a-5d29-4236-a1c3-93e3990cb027"/>
 					<textElement textAlignment="Center">
 						<font size="15"/>
 					</textElement>

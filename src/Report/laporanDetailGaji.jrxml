@@ -9,7 +9,6 @@
 	<parameter name="employe_id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
-
 	<parameter name="imagePath" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT 
@@ -69,19 +68,19 @@ AND g.employe_id = $P{employe_id}]]>
 		<band height="146">
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="0" width="842" height="146" backcolor="#FFFFFF" uuid="bf3c837c-8be5-46b8-ba52-3c315cb82451"/>
-				<image  isUsingCache="true" onErrorType="Blank">
+				<image hAlign="Center" isUsingCache="true" onErrorType="Blank">
 					<reportElement x="20" y="20" width="177" height="95" uuid="f63fc28e-109e-4126-b5be-2c510f2a6f55"/>
 					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<staticText>
-					<reportElement x="249" y="8" width="533" height="53" uuid="c45aab93-36d9-41b4-94c8-a1172db9eaab"/>
-					<textElement>
+					<reportElement x="217" y="8" width="593" height="53" uuid="c45aab93-36d9-41b4-94c8-a1172db9eaab"/>
+					<textElement textAlignment="Center">
 						<font size="35" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="249" y="56" width="533" height="87" uuid="1ed10359-14e3-4f29-86a4-72acadf3cd2f"/>
+					<reportElement x="217" y="56" width="593" height="87" uuid="1ed10359-14e3-4f29-86a4-72acadf3cd2f"/>
 					<textElement textAlignment="Center">
 						<font size="15"/>
 					</textElement>
@@ -388,10 +387,6 @@ Email : office@mssindonesia.co.id ]]></text>
 						<font size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd-MM-yyyy"))]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="60" y="32" width="403" height="20" uuid="907d8d74-dfeb-4e94-af33-17a8e518e6fa"/>
-					<textFieldExpression><![CDATA[System.getProperty("user.dir")]]></textFieldExpression>
 				</textField>
 			</frame>
 			<textField>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PembayaranBPJS" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="b5e28852-4786-4e3e-aeab-4d38138a4fd7">
-	<property name="ireport.zoom" value="0.6209213230591601"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="1.4641000000000128"/>
+	<property name="ireport.x" value="216"/>
+	<property name="ireport.y" value="20"/>
 	<parameter name="periode_id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -56,16 +56,16 @@ AND g.periode_id = $P{periode_id}]]>
 		<band height="108" splitType="Stretch">
 			<frame>
 				<reportElement x="-19" y="0" width="595" height="108" uuid="5019fc42-a1ea-45b9-98ae-1adbc0ed444f"/>
-				<image hAlign="Center" vAlign="Middle"  isUsingCache="true" onErrorType="Blank">
+				<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
 					<reportElement x="21" y="10" width="122" height="67" uuid="2609fc92-6099-4e35-b430-f7e7c26c8d98"/>
 					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<line>
-					<reportElement x="190" y="37" width="326" height="1" uuid="9f1ff7fb-e186-4bd0-b71a-c9a26b01a9df"/>
+					<reportElement x="170" y="37" width="367" height="1" uuid="9f1ff7fb-e186-4bd0-b71a-c9a26b01a9df"/>
 				</line>
 				<staticText>
-					<reportElement x="190" y="10" width="326" height="37" uuid="8cb68486-d864-4299-8fe1-eddb85271d20"/>
-					<textElement>
+					<reportElement x="170" y="10" width="367" height="37" uuid="8cb68486-d864-4299-8fe1-eddb85271d20"/>
+					<textElement textAlignment="Center">
 						<font size="22" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>

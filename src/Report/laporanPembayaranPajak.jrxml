@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5e28852-4786-4e3e-aeab-4d38138a4fd7">
-	<property name="ireport.zoom" value="0.5644739300537811"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="1.33100000000001"/>
+	<property name="ireport.x" value="134"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="periode_id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
@@ -103,17 +103,17 @@ AND g.periode_id = $P{periode_id}]]>
 					<imageExpression><![CDATA[$P{imagePath}]]></imageExpression>
 				</image>
 				<line>
-					<reportElement x="190" y="37" width="326" height="1" uuid="5cd97751-9a4e-4f42-8103-98171451a6fc"/>
+					<reportElement x="170" y="37" width="363" height="1" uuid="5cd97751-9a4e-4f42-8103-98171451a6fc"/>
 				</line>
 				<staticText>
-					<reportElement x="190" y="10" width="326" height="37" uuid="5f0ecdf8-d0d3-407f-aee4-064eb68bdf56"/>
+					<reportElement x="170" y="10" width="363" height="37" uuid="5f0ecdf8-d0d3-407f-aee4-064eb68bdf56"/>
 					<textElement>
 						<font size="22" isBold="true"/>
 					</textElement>
 					<text><![CDATA[PT MAGNUS SEDAYA SELARAS]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="170" y="47" width="367" height="55" uuid="624adaf1-5746-46b4-8de6-db04db02e2c5"/>
+					<reportElement x="170" y="47" width="363" height="55" uuid="624adaf1-5746-46b4-8de6-db04db02e2c5"/>
 					<textElement textAlignment="Center"/>
 					<text><![CDATA[Komp Graha Kencana, Jl. Perjuangan No.88 Blok BH, Kelurahan Kebon Jeruk, Kebon Jeruk, Jakarta Barat, DKI Jakarta 11530. 
 Telp. : 0857 8222 6262 

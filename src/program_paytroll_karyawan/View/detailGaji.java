@@ -6,6 +6,7 @@
 package program_paytroll_karyawan.View;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,7 +50,8 @@ public class detailGaji extends javax.swing.JPanel {
     private List<KaryawanModel> listKaryawan;
     private final ImplementPeriode daoPeriode = new PeriodeDAO();
     private final ImplementKaryawan daoKaryawan = new KaryawanDAO();
-    
+        String path;
+
     /**
      * Creates new form slipGaji
      */
@@ -58,6 +60,8 @@ public class detailGaji extends javax.swing.JPanel {
         this.initPeriodeValue();
         this.initKaryawanValue();
 //        showData("");
+        path = loginModel.getPath();
+
     }
 
      
@@ -118,6 +122,7 @@ public class detailGaji extends javax.swing.JPanel {
                    parameters.put("periode_id", idPeriode);
                    parameters.put("employe_id", idKaryawan);
 
+                   parameters.put("imagePath",this.path);
                    JasperReport jr = (JasperReport) JRLoader.loadObject(file);
                    JasperPrint jp = JasperFillManager.fillReport(jr, parameters, DbConnection.getConnection());
                    JasperViewer.viewReport(jp, false);
@@ -329,6 +334,8 @@ public class detailGaji extends javax.swing.JPanel {
                     //tampil panel
                     reportView.setLayout(new BorderLayout());
                     reportView.repaint();
+                    JRViewer viewReport = new JRViewer(print);
+                    viewReport.setPreferredSize(new Dimension(getSize()));
                     reportView.add(new JRViewer(print));
                     reportView.revalidate();
                 } catch (Exception e) {
