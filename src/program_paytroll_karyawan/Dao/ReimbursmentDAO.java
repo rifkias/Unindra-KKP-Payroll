@@ -64,12 +64,13 @@ public class ReimbursmentDAO implements ImplementReimburse{
             
             if(!search.equals("")){
                 String like = "'%"+search+"%'";
-                sql += " AND reimbursment_no = "+like;
+                sql += " AND reimbursment_no LIKE "+like;
             }
             
             if(employeId > 0){
                 sql += " AND employe_id = '"+employeId+"'";
             }
+            System.out.println(sql);
             Statement statement = DbConnection.getConnection().createStatement();
             ResultSet result = statement.executeQuery(sql);
             

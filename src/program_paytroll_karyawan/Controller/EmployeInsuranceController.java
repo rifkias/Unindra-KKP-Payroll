@@ -77,7 +77,7 @@ public class EmployeInsuranceController {
         int row = panel.getTable().getSelectedRow();
 
         if (row != -1) {
-            int id = list.get(row).getEmploye_id();
+            int id = list.get(row).getEmploye_insurance_id();
             int col = panel.getTable().getSelectedColumn();
 
             if (col == 10) {
