@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5e28852-4786-4e3e-aeab-4d38138a4fd7">
-	<property name="ireport.zoom" value="1.33100000000001"/>
-	<property name="ireport.x" value="134"/>
+	<property name="ireport.zoom" value="1.1000000000000083"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="periode_id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
@@ -126,37 +126,44 @@ Email : office@mssindonesia.co.id ]]></text>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="90" splitType="Stretch">
+		<band height="107" splitType="Stretch">
 			<staticText>
-				<reportElement x="21" y="14" width="100" height="20" uuid="e99e3fb8-7e17-4961-8f62-7b9e624af3d1"/>
+				<reportElement x="21" y="34" width="100" height="20" uuid="e99e3fb8-7e17-4961-8f62-7b9e624af3d1"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Periode : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="21" y="34" width="100" height="20" uuid="c2d3e118-d26b-4137-b785-4ab11f6c2354"/>
+				<reportElement x="21" y="54" width="100" height="20" uuid="c2d3e118-d26b-4137-b785-4ab11f6c2354"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Mulai Dari : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="21" y="54" width="100" height="20" uuid="061f29d0-fe0b-461b-be72-dd91f259b6b7"/>
+				<reportElement x="21" y="74" width="100" height="20" uuid="061f29d0-fe0b-461b-be72-dd91f259b6b7"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Sampai : ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="121" y="14" width="100" height="20" uuid="abcb3d0b-e736-4168-bc3c-76a35d7b88d8"/>
+				<reportElement x="121" y="34" width="100" height="20" uuid="abcb3d0b-e736-4168-bc3c-76a35d7b88d8"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{periode_name}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="121" y="34" width="100" height="20" uuid="712e8715-6e5e-4796-a0b3-305d1cbc9568"/>
+				<reportElement x="121" y="54" width="100" height="20" uuid="712e8715-6e5e-4796-a0b3-305d1cbc9568"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{start_date}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="121" y="54" width="100" height="20" uuid="33bc13ee-c388-47ca-b31b-740c4142ab9f"/>
+				<reportElement x="121" y="74" width="100" height="20" uuid="33bc13ee-c388-47ca-b31b-740c4142ab9f"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{end_date}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="84" y="4" width="407" height="30" uuid="2b76229d-51c2-4245-aeb5-d91faaebc6ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Pembayaran Pajak]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

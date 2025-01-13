@@ -42,7 +42,7 @@ $P!{searchCondition}]]>
 		<band height="130"/>
 	</title>
 	<pageHeader>
-		<band height="13">
+		<band height="56">
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="-148" width="842" height="146" backcolor="#FFFFFF" uuid="d302c59e-dbfa-4069-8f7a-2b4ef87e6c97"/>
 				<image onErrorType="Blank">
@@ -72,6 +72,13 @@ Email : office@mssindonesia.co.id ]]></text>
 					<reportElement x="0" y="144" width="842" height="1" uuid="1f3c854f-2d38-41b1-b799-23b1e21abd4f"/>
 				</line>
 			</frame>
+			<staticText>
+				<reportElement x="198" y="-1" width="407" height="57" uuid="37abb9a2-ca81-4d20-ab32-3a0f88dbf984"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Absensi Karyawan]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>

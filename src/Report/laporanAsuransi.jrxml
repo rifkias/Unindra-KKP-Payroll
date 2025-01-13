@@ -115,7 +115,15 @@ Email : office@mssindonesia.co.id ]]></text>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="14" splitType="Stretch"/>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="74" y="0" width="407" height="39" uuid="efd08794-3adc-472e-8f04-2eeac7e138e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Asuransi Karyawan]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="21" splitType="Stretch">

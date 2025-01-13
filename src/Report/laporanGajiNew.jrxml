@@ -111,7 +111,15 @@ Email : office@mssindonesia.co.id ]]></text>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="13"/>
+		<band height="50">
+			<staticText>
+				<reportElement x="198" y="0" width="407" height="50" uuid="6df8225f-d940-4414-a8fc-68d2f5e905b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Pembayaran Gaji]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="21">

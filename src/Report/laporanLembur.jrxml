@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="62d75d74-c994-485f-ab4b-fc9b124a2a7f">
 	<property name="ireport.zoom" value="0.826446280991736"/>
-	<property name="ireport.x" value="18"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="periodeBulan" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -69,7 +69,15 @@ Email : office@mssindonesia.co.id ]]></text>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="13"/>
+		<band height="57">
+			<staticText>
+				<reportElement x="198" y="0" width="407" height="57" uuid="dfcf9c4a-74e0-4fe1-acbb-75d4d5aefb73"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Absensi Karyawan]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="21">
