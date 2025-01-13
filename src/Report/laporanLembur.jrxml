@@ -75,7 +75,7 @@ Email : office@mssindonesia.co.id ]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Laporan Absensi Karyawan]]></text>
+				<text><![CDATA[Laporan Lembur Karyawan]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
