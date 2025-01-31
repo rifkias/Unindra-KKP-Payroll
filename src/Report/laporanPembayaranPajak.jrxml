@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5e28852-4786-4e3e-aeab-4d38138a4fd7">
 	<property name="ireport.zoom" value="1.1000000000000083"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="303"/>
 	<parameter name="periode_id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -287,7 +287,7 @@ Email : office@mssindonesia.co.id ]]></text>
 			<textField>
 				<reportElement x="389" y="1" width="165" height="19" uuid="f6dc3284-9838-4069-8fd6-197944b849f9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd-MM-yyyy"))]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd"))+" "+(new java.util.Date().format("MMMM") == "January" ? "Januari" : (new java.util.Date().format("MMMM") == "February" ? "Februari" : (new java.util.Date().format("MMMM") == "March" ? "Maret" : (new java.util.Date().format("MMMM") == "April" ? "April" : (new java.util.Date().format("MMMM") == "May" ? "Mei" : (new java.util.Date().format("MMMM") == "June" ? "Juni" : (new java.util.Date().format("MMMM") == "July" ? "Juli" : (new java.util.Date().format("MMMM") == "August" ? "Agustus" : (new java.util.Date().format("MMMM") == "September" ? "September" : (new java.util.Date().format("MMMM") == "October" ? "Oktober" : (new java.util.Date().format("MMMM") == "November" ? "November" : (new java.util.Date().format("MMMM") == "December" ? "December" : ("-")))))))))))) )+" "+(new java.util.Date().format("yyyy"))]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="412" y="58" width="119" height="20" uuid="7cb43c47-4840-4a68-b45f-42c099676733"/>

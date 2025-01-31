@@ -194,11 +194,11 @@ Email : office@mssindonesia.co.id ]]></text>
 				<text><![CDATA[Hari Darmawan]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="590" y="4" width="212" height="20" uuid="3abcbc28-75b0-44b5-aa2e-b65451ad6b7b"/>
+				<reportElement x="556" y="4" width="246" height="20" uuid="3abcbc28-75b0-44b5-aa2e-b65451ad6b7b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd-MM-yyyy"))]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd"))+" "+(new java.util.Date().format("MMMM") == "January" ? "Januari" : (new java.util.Date().format("MMMM") == "February" ? "Februari" : (new java.util.Date().format("MMMM") == "March" ? "Maret" : (new java.util.Date().format("MMMM") == "April" ? "April" : (new java.util.Date().format("MMMM") == "May" ? "Mei" : (new java.util.Date().format("MMMM") == "June" ? "Juni" : (new java.util.Date().format("MMMM") == "July" ? "Juli" : (new java.util.Date().format("MMMM") == "August" ? "Agustus" : (new java.util.Date().format("MMMM") == "September" ? "September" : (new java.util.Date().format("MMMM") == "October" ? "Oktober" : (new java.util.Date().format("MMMM") == "November" ? "November" : (new java.util.Date().format("MMMM") == "December" ? "December" : ("-")))))))))))) )+" "+(new java.util.Date().format("yyyy"))]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
