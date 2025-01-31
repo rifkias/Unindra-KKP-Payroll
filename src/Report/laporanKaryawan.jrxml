@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0945f48e-d596-445b-8482-7a5297ca711d">
-	<property name="ireport.zoom" value="0.6361464275587272"/>
+	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="searchData" class="java.lang.String">
@@ -214,14 +214,14 @@ Email : office@mssindonesia.co.id ]]></text>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="654" y="20" width="108" height="20" uuid="e6631c86-fbd1-4563-9102-aad483bad3da"/>
+					<reportElement x="631" y="20" width="108" height="20" uuid="e6631c86-fbd1-4563-9102-aad483bad3da"/>
 					<textElement textAlignment="Center">
 						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Manager HRD]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="654" y="58" width="119" height="20" uuid="6b4316eb-ae6b-4278-a985-32cb65e21dee"/>
+					<reportElement x="626" y="58" width="119" height="20" uuid="6b4316eb-ae6b-4278-a985-32cb65e21dee"/>
 					<textElement textAlignment="Center">
 						<font size="12" isBold="true"/>
 					</textElement>

@@ -368,14 +368,14 @@ Email : office@mssindonesia.co.id ]]></text>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="654" y="20" width="108" height="20" uuid="e11a1b2f-f958-4964-bd60-b3a14854fa8d"/>
+					<reportElement x="614" y="20" width="108" height="20" uuid="e11a1b2f-f958-4964-bd60-b3a14854fa8d"/>
 					<textElement textAlignment="Center">
 						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Manager HRD]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="654" y="58" width="119" height="20" uuid="a8ac8a77-53a4-4c85-89a2-839eb2a0cc85"/>
+					<reportElement x="609" y="58" width="119" height="20" uuid="a8ac8a77-53a4-4c85-89a2-839eb2a0cc85"/>
 					<textElement textAlignment="Center">
 						<font size="12" isBold="true"/>
 					</textElement>

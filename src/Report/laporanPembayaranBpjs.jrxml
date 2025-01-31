@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PembayaranBPJS" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="b5e28852-4786-4e3e-aeab-4d38138a4fd7">
 	<property name="ireport.zoom" value="1.1000000000000094"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="234"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="periode_id" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -254,19 +254,19 @@ Email : office@mssindonesia.co.id ]]></text>
 	<pageFooter>
 		<band height="108" splitType="Stretch">
 			<textField>
-				<reportElement x="364" y="11" width="190" height="19" uuid="9fcdc548-9450-4914-9823-c56c1d4bf0b9"/>
+				<reportElement x="364" y="3" width="190" height="19" uuid="9fcdc548-9450-4914-9823-c56c1d4bf0b9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd"))+" "+(new java.util.Date().format("MMMM") == "January" ? "Januari" : (new java.util.Date().format("MMMM") == "February" ? "Februari" : (new java.util.Date().format("MMMM") == "March" ? "Maret" : (new java.util.Date().format("MMMM") == "April" ? "April" : (new java.util.Date().format("MMMM") == "May" ? "Mei" : (new java.util.Date().format("MMMM") == "June" ? "Juni" : (new java.util.Date().format("MMMM") == "July" ? "Juli" : (new java.util.Date().format("MMMM") == "August" ? "Agustus" : (new java.util.Date().format("MMMM") == "September" ? "September" : (new java.util.Date().format("MMMM") == "October" ? "Oktober" : (new java.util.Date().format("MMMM") == "November" ? "November" : (new java.util.Date().format("MMMM") == "December" ? "December" : ("-")))))))))))) )+" "+(new java.util.Date().format("yyyy"))]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="412" y="68" width="119" height="20" uuid="612c90f3-9d20-416c-9901-152a94bd722c"/>
+				<reportElement x="400" y="68" width="119" height="20" uuid="612c90f3-9d20-416c-9901-152a94bd722c"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hari Darmawan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="417" y="30" width="108" height="20" uuid="00d9ad73-2b80-4ad7-baf1-29f54df99bce"/>
+				<reportElement x="405" y="22" width="108" height="20" uuid="00d9ad73-2b80-4ad7-baf1-29f54df99bce"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>

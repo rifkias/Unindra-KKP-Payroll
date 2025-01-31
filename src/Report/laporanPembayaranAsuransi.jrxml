@@ -321,14 +321,14 @@ Email : office@mssindonesia.co.id ]]></text>
 				<textFieldExpression><![CDATA["Jakarta,  "+(new java.util.Date().format("EEEE") == "Sunday" ? "Minggu" : (new java.util.Date().format("EEEE") == "Monday" ? "Senin" : (new java.util.Date().format("EEEE") == "Tuesday" ? "Selasa" : (new java.util.Date().format("EEEE") == "Wednesday" ? "Rabu" : (new java.util.Date().format("EEEE") == "Thursday" ? "Kamis" : (new java.util.Date().format("EEEE") == "Friday" ? "Jumat" : (new java.util.Date().format("EEEE") == "Saturday" ? "Sabtu" : (""))))))))+"  "+(new java.util.Date().format("dd"))+" "+(new java.util.Date().format("MMMM") == "January" ? "Januari" : (new java.util.Date().format("MMMM") == "February" ? "Februari" : (new java.util.Date().format("MMMM") == "March" ? "Maret" : (new java.util.Date().format("MMMM") == "April" ? "April" : (new java.util.Date().format("MMMM") == "May" ? "Mei" : (new java.util.Date().format("MMMM") == "June" ? "Juni" : (new java.util.Date().format("MMMM") == "July" ? "Juli" : (new java.util.Date().format("MMMM") == "August" ? "Agustus" : (new java.util.Date().format("MMMM") == "September" ? "September" : (new java.util.Date().format("MMMM") == "October" ? "Oktober" : (new java.util.Date().format("MMMM") == "November" ? "November" : (new java.util.Date().format("MMMM") == "December" ? "December" : ("-")))))))))))) )+" "+(new java.util.Date().format("yyyy"))]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="411" y="57" width="119" height="20" uuid="69abccff-9de3-40b5-a9ff-8b804aab38a6"/>
+				<reportElement x="398" y="57" width="119" height="20" uuid="69abccff-9de3-40b5-a9ff-8b804aab38a6"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hari Darmawan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="416" y="19" width="108" height="20" uuid="d7bf98e1-e3ce-41b2-919a-9581fd598731"/>
+				<reportElement x="403" y="19" width="108" height="20" uuid="d7bf98e1-e3ce-41b2-919a-9581fd598731"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
